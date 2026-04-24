@@ -1,0 +1,349 @@
+.contact {
+    position: relative;
+    padding: 64px 0 0;
+    background: #141414;
+
+    @media (max-width: 767px) {
+        padding-top: 40px;
+    }
+}
+
+.contact__shell {
+    position: relative;
+    padding: 0 0 72px;
+
+    @media (max-width: 767px) {
+        padding-bottom: 48px;
+    }
+}
+
+.contact__stage {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(520px, 782px);
+    gap: 32px;
+    padding: 16px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(90deg, rgba(20, 20, 20, 0.96) 0%, rgba(20, 20, 20, 0.88) 28%, rgba(87, 22, 18, 0.8) 64%, rgba(188, 75, 16, 0.9) 100%);
+    isolation: isolate;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("https://www.figma.com/api/mcp/asset/3b8ed9df-4d68-43c7-a99b-fb40a585f436");
+        background-size: cover;
+        background-position: center;
+        mix-blend-mode: lighten;
+        opacity: 0.26;
+        pointer-events: none;
+    }
+
+    @media (max-width: 1199px) {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    @media (max-width: 767px) {
+        padding: 12px;
+        gap: 24px;
+    }
+}
+
+.contact__info,
+.contact__form-card {
+    position: relative;
+    z-index: 1;
+}
+
+.contact__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 698px;
+    padding: 24px 18px 8px 18px;
+
+    @media (max-width: 1199px) {
+        min-height: auto;
+        gap: 40px;
+    }
+
+    @media (max-width: 767px) {
+        padding: 12px 8px 0;
+    }
+}
+
+.contact__intro {
+    max-width: 544px;
+}
+
+.contact__title,
+.contact__form-title {
+    color: #f8f8f6;
+    margin-bottom: 24px;
+
+    @media (max-width: 767px) {
+        margin-bottom: 18px;
+    }
+}
+
+.contact__description,
+.contact__form-copy {
+    max-width: 544px;
+    font-family: "Halyard Display Book", sans-serif;
+    font-size: 16px;
+    line-height: 1.3;
+    color: rgba(248, 248, 246, 0.8);
+
+    @media (max-width: 575px) {
+        font-size: 15px;
+    }
+}
+
+.contact__details {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+
+    @media (max-width: 991px) {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+.contact__detail {
+    padding-right: 28px;
+    min-height: 148px;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+
+    &:last-child {
+        border-right: 0;
+        padding-right: 0;
+        padding-left: 28px;
+    }
+
+    &:nth-child(2) {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    @media (max-width: 991px) {
+        padding: 0 0 20px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+        &:last-child,
+        &:nth-child(2) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        &:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    @media (max-width: 575px) {
+        min-height: auto;
+    }
+}
+
+.contact__detail-title {
+    margin-bottom: 18px;
+    font-family: "Halyard Display", sans-serif;
+    font-size: 20px;
+    line-height: 1.3;
+    text-transform: uppercase;
+    color: #fe5620;
+}
+
+.contact__detail-copy {
+    min-height: 52px;
+    margin-bottom: 42px;
+    font-family: "Halyard Display Book", sans-serif;
+    font-size: 18px;
+    line-height: 1.3;
+    color: rgba(248, 248, 246, 0.8);
+
+    @media (max-width: 575px) {
+        min-height: auto;
+        margin-bottom: 24px;
+        font-size: 16px;
+    }
+}
+
+.contact__detail-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #fe5620;
+    font-family: "Halyard Display Book", sans-serif;
+    font-size: 16px;
+    line-height: 1;
+    color: #fe5620;
+    transition: color 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+    .btn__icon {
+        width: 13px;
+        height: 13px;
+    }
+
+    &:hover {
+        color: #f8f8f6;
+        border-color: #f8f8f6;
+        transform: translateY(-1px);
+    }
+
+    .btn__arrow {
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .contact__detail-link:hover .btn__arrow--a {
+        transform: translate(130%, -130%);
+    }
+
+    .contact__detail-link:hover .btn__arrow--b {
+        transform: translate(0, 0);
+    }
+}
+
+.contact__form-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.contact__form-border {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #c78d1d 0%, #fe5620 100%);
+}
+
+.contact__form-panel {
+    position: relative;
+    margin: 1px;
+    padding: 24px;
+    border-radius: 11px;
+    background: #141414;
+    min-height: 698px;
+
+    @media (max-width: 1199px) {
+        min-height: auto;
+    }
+
+    @media (max-width: 767px) {
+        padding: 18px;
+        min-height: auto;
+    }
+}
+
+.contact__form-header {
+    margin-bottom: 34px;
+
+    @media (max-width: 575px) {
+        margin-bottom: 24px;
+    }
+}
+
+.contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact__field {
+    display: flex;
+    align-items: center;
+    min-height: 64px;
+    padding: 0 32px;
+    border-radius: 32px;
+    background: #1d1d1d;
+    transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:focus-within,
+    &:hover {
+        background: #232323;
+        transform: translateY(-1px);
+        box-shadow: 0 0 0 1px rgba(254, 86, 32, 0.22);
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        font-family: "Halyard Display Book", sans-serif;
+        font-size: 18px;
+        line-height: 1.3;
+        color: #f8f8f6;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: #7c7979;
+    }
+
+    @media (max-width: 575px) {
+        min-height: 58px;
+        padding: 0 20px;
+
+        input,
+        textarea {
+            font-size: 16px;
+        }
+    }
+}
+
+.contact__field--phone {
+    gap: 16px;
+
+    @media (max-width: 575px) {
+        gap: 10px;
+    }
+}
+
+.contact__prefix {
+    flex-shrink: 0;
+    font-family: "Halyard Display Book", sans-serif;
+    font-size: 18px;
+    color: #f8f8f6;
+
+    @media (max-width: 575px) {
+        font-size: 16px;
+    }
+}
+
+.contact__field--textarea {
+    align-items: flex-start;
+    min-height: 157px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    textarea {
+        min-height: 117px;
+        resize: vertical;
+    }
+
+    @media (max-width: 575px) {
+        min-height: 138px;
+        padding-top: 18px;
+        padding-bottom: 18px;
+
+        textarea {
+            min-height: 92px;
+        }
+    }
+}
+
+.contact__submit {
+    width: fit-content;
+    margin-top: 2px;
+
+    @media (max-width: 575px) {
+        width: 100%;
+        justify-content: center;
+    }
+}

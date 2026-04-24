@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Halyard Display Book';
+    src: url('../fonts/HalyardDisplayBook-Regular.eot');
+    src: url('../fonts/HalyardDisplayBook-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/HalyardDisplayBook-Regular.woff2') format('woff2'),
+        url('../fonts/HalyardDisplayBook-Regular.woff') format('woff'),
+        url('../fonts/HalyardDisplayBook-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Halyard Display';
+    src: url('../fonts/HalyardDisplay-Regular.eot');
+    src: url('../fonts/HalyardDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/HalyardDisplay-Regular.woff2') format('woff2'),
+        url('../fonts/HalyardDisplay-Regular.woff') format('woff'),
+        url('../fonts/HalyardDisplay-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

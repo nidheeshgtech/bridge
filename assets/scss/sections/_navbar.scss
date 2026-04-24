@@ -1,0 +1,365 @@
+@use '../abstracts' as *;
+@use 'sass:color';
+
+// ── Container ──────────────────────────────────────────────
+.site-header {
+    position: fixed;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    z-index: $z-nav;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+
+    &.site-header--hidden {
+        transform: translateY(calc(-100% - 36px));
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    @include respond-to(lg) {
+        top: 20px;
+    }
+
+    @include respond-to(sm) {
+        top: 16px;
+    }
+}
+
+// ── Navbar ─────────────────────────────────────────────────
+.navbar {
+    @include glass(rgba(242, 241, 237, 0.08), 3px, rgba(242, 241, 237, 0.2));
+    border-radius: $radius-nav;
+    display: flex;
+    align-items: center;
+    padding: 0 26px;
+    height: 80px;
+    gap: 79px;
+    position: relative; // anchor for the mobile dropdown
+
+    @include respond-to(lg) {
+        gap: 32px;
+    }
+
+    @include respond-to(md) {
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    @include respond-to(sm) {
+        height: 64px;
+        padding: 0 16px;
+        gap: 0;
+    }
+}
+
+// ── Logo ───────────────────────────────────────────────────
+.navbar__logo {
+    display: block;
+    width: 155px;
+    height: 36px;
+    flex-shrink: 0;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    @include respond-to(sm) {
+        width: 110px;
+        height: 28px;
+    }
+}
+
+// ── Desktop menu ───────────────────────────────────────────
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex: 1;
+    margin: 0px;
+
+    @include respond-to(lg) {
+        gap: 20px;
+    }
+
+    @include respond-to(md) {
+        gap: 14px;
+    }
+
+    // ── Mobile dropdown ──
+    @include respond-to(sm) {
+        // Detach from the flow — drop below navbar
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+        padding: 12px 10px;
+        border-radius: $radius-nav;
+        background: rgba(14, 14, 14, 0.92);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(242, 241, 237, 0.14);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+        // Hidden state
+        opacity: 0;
+        transform: translateY(-12px);
+        pointer-events: none;
+        visibility: hidden;
+        transition:
+            opacity 0.3s ease,
+            transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+            visibility 0s linear 0.35s;
+
+        // Open state
+        .navbar--open & {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+            visibility: visible;
+            transition:
+                opacity 0.3s ease,
+                transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0s linear 0s;
+        }
+    }
+}
+
+// ── Menu items ─────────────────────────────────────────────
+.navbar__item {
+    position: relative;
+
+    // Staggered enter animation on mobile
+    @include respond-to(sm) {
+        opacity: 0;
+        transform: translateY(-8px);
+        transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+        // Reset delay on close (no stagger)
+        transition-delay: 0s;
+    }
+}
+
+// Open: stagger each item
+@include respond-to(sm) {
+    .navbar--open .navbar__item {
+        opacity: 1;
+        transform: translateY(0);
+
+        @for $i from 1 through 7 {
+            &:nth-child(#{$i}) {
+                transition-delay: #{0.06 + ($i - 1) * 0.045}s;
+            }
+        }
+    }
+}
+
+// ── Links ──────────────────────────────────────────────────
+.navbar__link {
+    font-family: $font-book;
+    font-size: $fs-body-sm;
+    color: $color-text;
+    text-transform: capitalize;
+    line-height: $lh-tight;
+    white-space: nowrap;
+
+    // Desktop hover — colour + lift
+    @media (hover: hover) and (pointer: fine) {
+        transition:
+            color 0.25s ease,
+            transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+        &:hover {
+            color: $color-accent;
+            transform: translateY(-2px);
+        }
+    }
+
+    @include respond-to(md) {
+        font-size: 14px;
+    }
+
+    // Mobile — full reset, no underline, block layout
+    @include respond-to(sm) {
+        display: block;
+        font-size: 16px;
+        padding: 13px 14px;
+        border-radius: 10px;
+        white-space: normal;
+        transform: none !important;
+        transition: color var(--transition), background var(--transition);
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.06);
+            color: $color-accent;
+        }
+    }
+}
+
+// ── Active state ───────────────────────────────────────────
+
+// Desktop: active link colour
+.navbar__item--active .navbar__link {
+    color: $color-accent;
+}
+
+// Desktop: orange tick at the bottom edge of the nav bar (Figma design)
+.navbar__item--active::after {
+    content: '';
+    position: absolute;
+    bottom: -29px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: $color-accent;
+
+    @include respond-to(sm) {
+        display: none;
+    }
+}
+
+// Mobile: orange tint on active link
+@include respond-to(sm) {
+    .navbar__item--active .navbar__link {
+        color: $color-accent;
+        background: rgba(254, 86, 32, 0.08);
+    }
+}
+
+// ── Right actions ──────────────────────────────────────────
+.navbar__right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: auto;
+    flex-shrink: 0;
+
+    @include respond-to(sm) {
+        gap: 10px;
+    }
+}
+
+.navbar__lang {
+    font-family: $font-arabic;
+    font-size: $fs-label;
+    color: $color-text;
+    white-space: nowrap;
+
+    @include respond-to(sm) {
+        font-size: 12px;
+    }
+}
+
+.navbar__search {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: $color-accent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    flex-shrink: 0;
+    transition: background var(--transition);
+
+    &:hover {
+        background: color.adjust(#fe5620, $lightness: -10%);
+    }
+
+    img {
+        width: 20px;
+        height: auto;
+        object-fit: contain;
+    }
+
+    @include respond-to(sm) {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+// ── Hamburger button ───────────────────────────────────────
+.navbar__hamburger {
+    display: none;
+
+    @include respond-to(sm) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+        flex-shrink: 0;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 10px;
+        transition: background var(--transition), border-color var(--transition);
+        // Remove browser defaults
+        -webkit-appearance: none;
+        appearance: none;
+        outline: none;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.22);
+        }
+
+        &:focus-visible {
+            outline: 2px solid $color-accent;
+            outline-offset: 2px;
+        }
+
+        span {
+            display: block;
+            height: 2px;
+            background: $color-text;
+            border-radius: 2px;
+            transform-origin: center;
+            transition:
+                transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.25s ease,
+                width 0.3s ease;
+
+            &:nth-child(1) {
+                width: 20px;
+            }
+
+            &:nth-child(2) {
+                width: 14px;
+            }
+
+            // shorter middle line
+            &:nth-child(3) {
+                width: 20px;
+            }
+        }
+
+        // X state
+        &[aria-expanded="true"] {
+            background: rgba(254, 86, 32, 0.12);
+            border-color: rgba(254, 86, 32, 0.3);
+
+            span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+                width: 20px;
+            }
+
+            span:nth-child(2) {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+
+            span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+                width: 20px;
+            }
+        }
+    }
+}

@@ -1,0 +1,113 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+    text-align: center;
+
+    @media (max-width: 575px) {
+        gap: 28px;
+        margin-top: 28px;
+    }
+}
+
+.footer__line {
+    width: min(1600px, 100%);
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.footer__brand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+    img {
+        display: block;
+        width: 194px;
+        height: 45px;
+    }
+
+    @media (max-width: 575px) {
+        img {
+            width: 158px;
+            height: 37px;
+        }
+    }
+
+    &:hover {
+        transform: translateY(-2px);
+        opacity: 0.92;
+    }
+}
+
+.footer__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px 32px;
+    max-width: 720px;
+
+    a {
+        font-family: "Halyard Display Book", sans-serif;
+        font-size: 18px;
+        line-height: 0.9;
+        color: #f8f8f6;
+        transition: color 0.3s ease, transform 0.3s ease;
+
+        &:hover {
+            color: #fe5620;
+            transform: translateY(-1px);
+        }
+    }
+
+    @media (max-width: 767px) {
+        gap: 14px 18px;
+
+        a {
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 575px) {
+        max-width: 320px;
+        gap: 12px 16px;
+    }
+}
+
+.footer__legal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-family: "Halyard Display", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #7c7979;
+
+    @media (max-width: 575px) {
+        gap: 10px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    a {
+        color: #7c7979;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #f8f8f6;
+        }
+    }
+}
+
+.footer__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fe5620;
+}

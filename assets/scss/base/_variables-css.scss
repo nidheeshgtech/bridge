@@ -1,0 +1,51 @@
+:root {
+    // Colors
+    --color-bg:             #141414;
+    --color-bg-card:        #1d1d1d;
+    --color-accent:         #fe5620;
+    --color-text:           #f8f8f6;
+    --color-text-muted:     #7c7979;
+    --color-text-dim:       rgba(248, 248, 246, 0.8);
+    --color-border:         rgba(124, 121, 121, 0.6);
+    --color-border-light:   rgba(255, 255, 255, 0.2);
+    --color-border-subtle:  rgba(124, 121, 121, 0.4);
+    --color-glass:          rgba(242, 241, 237, 0.08);
+
+    // Typography
+    --font-primary:         'Halyard Display', sans-serif;
+    --font-book:            'Halyard Display Book', sans-serif;
+    --font-arabic:          'Almarai', sans-serif;
+
+    --fs-hero:              120px;
+    --fs-section:           72px;
+    --fs-stat:              136px;
+    --fs-card-title:        40px;
+    --fs-body-lg:           24px;
+    --fs-body:              18px;
+    --fs-body-sm:           16px;
+    --fs-label:             14px;
+
+    --lh-tight:             0.9;
+    --lh-normal:            1.2;
+    --lh-loose:             1.3;
+
+    --ls-heading:           0.5px;
+    --ls-body:              0.5px;
+
+    // Spacing
+    --section-px:           80px;
+    --section-py:           80px;
+    --gap-lg:               48px;
+    --gap-md:               40px;
+    --gap-sm:               24px;
+    --gap-xs:               16px;
+
+    // Border radius
+    --radius-card:          16px;
+    --radius-pill:          32px;
+    --radius-sm:            10px;
+    --radius-nav:           16px;
+
+    // Transitions
+    --transition:           0.25s ease;
+}

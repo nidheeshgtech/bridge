@@ -1,0 +1,105 @@
+@use 'sass:math';
+@use 'variables' as *;
+
+// ============================================================
+// Fluid typography
+// Scales font-size linearly between $min-vw and $max-vw viewports.
+// Usage: font-size: fluid(60, 120);
+// ============================================================
+@function fluid($min-px, $max-px, $min-vw: 1199, $max-vw: 1920) {
+    $slope:     math.div($max-px - $min-px, $max-vw - $min-vw);
+    $intercept: $min-px - $slope * $min-vw;
+
+    @if $intercept >= 0 {
+        @return clamp(#{$min-px}px, #{$slope * 100}vw + #{$intercept}px, #{$max-px}px);
+    } @else {
+        @return clamp(#{$min-px}px, #{$slope * 100}vw - #{math.abs($intercept)}px, #{$max-px}px);
+    }
+}
+
+// ============================================================
+// Responsive breakpoints
+// ============================================================
+@mixin respond-to($bp) {
+    @if      $bp == xl { @media (max-width: #{$bp-xl}) { @content; } }
+    @else if $bp == lg { @media (max-width: #{$bp-lg}) { @content; } }
+    @else if $bp == md { @media (max-width: #{$bp-md}) { @content; } }
+    @else if $bp == sm { @media (max-width: #{$bp-sm}) { @content; } }
+    @else if $bp == xs { @media (max-width: #{$bp-xs}) { @content; } }
+}
+
+// ============================================================
+// Flex helpers
+// ============================================================
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+// ============================================================
+// Glassmorphism
+// ============================================================
+@mixin glass($bg: $color-overlay-glass, $blur: 3px, $border: $color-border-light) {
+    background: $bg;
+    backdrop-filter: blur($blur);
+    -webkit-backdrop-filter: blur($blur);
+    border: 1px solid $border;
+}
+
+// ============================================================
+// Section base
+// ============================================================
+@mixin section-base {
+    width: 100%;
+    padding: $section-py $section-px;
+    position: relative;
+}
+
+// ============================================================
+// Pill button
+// ============================================================
+@mixin btn-pill($bg: transparent, $color: $color-accent, $border: $color-accent) {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    border-radius: $radius-pill;
+    border: 1px solid $border;
+    background: $bg;
+    color: $color;
+    font-family: $font-book;
+    font-size: $fs-body-sm;
+    line-height: 1;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+// ============================================================
+// Absolute fill
+// ============================================================
+@mixin fill {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+// ============================================================
+// Section heading
+// ============================================================
+@mixin section-heading {
+    font-family: $font-primary;
+    font-size: fluid(42, 72);
+    line-height: $lh-tight;
+    color: $color-text;
+    text-transform: uppercase;
+}

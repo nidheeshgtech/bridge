@@ -1,0 +1,152 @@
+@use '../abstracts' as *;
+
+.banner {
+    padding-bottom: 50px;
+    padding-top: 100px;
+
+    @include respond-to(sm) {
+        padding-bottom: 24px;
+    }
+
+    &__card {
+        background: linear-gradient(to bottom, rgba(29, 29, 29, 0), #1d1d1d);
+        border-radius: 20px;
+        box-shadow: 0 10px 34px 22px rgba(0, 0, 0, 0.25);
+        padding: 32px;
+        position: sticky;
+        top: 0;
+
+        @include respond-to(sm) {
+            padding: 20px;
+            position: static;
+        }
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr 1px fluid(320, 532) 1px fluid(280, 461);
+        align-items: center;
+        gap: 20px;
+        min-height: 610px;
+
+        // Tablet: 2-col — text left, image right, description below
+        @include respond-to(md) {
+            grid-template-columns: 1fr fluid(240, 400);
+            grid-template-rows: auto auto;
+            min-height: auto;
+            gap: 24px;
+        }
+
+        // Mobile: single column
+        @include respond-to(sm) {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 29px;
+        text-transform: uppercase;
+
+        // Tablet: col 1 row 1
+        @include respond-to(md) {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        @include respond-to(sm) {
+            grid-column: auto;
+            grid-row: auto;
+        }
+    }
+
+    &__num {
+        font-family: $font-primary;
+        font-size: $fs-body;
+        color: $color-accent;
+        line-height: $lh-tight;
+    }
+
+    &__heading {
+        font-family: $font-primary;
+        font-size: fluid(28, 72);
+        line-height: $lh-tight;
+        color: $color-text;
+        text-transform: uppercase;
+    }
+
+    &__divider {
+        width: 1px;
+        height: 100%;
+        min-height: 580px;
+        background: rgba(255, 255, 255, 0.12);
+        align-self: stretch;
+
+        // Hide dividers on tablet and below
+        @include respond-to(md) {
+            display: none;
+        }
+    }
+
+    &__image {
+        border-radius: $radius-card;
+        overflow: hidden;
+        height: 580px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        // Tablet: span both rows, right column
+        @include respond-to(md) {
+            grid-column: 2;
+            grid-row: 1 / 3;
+            height: 100%;
+            min-height: 320px;
+        }
+
+        @include respond-to(sm) {
+            grid-column: auto;
+            grid-row: auto;
+            height: 260px;
+        }
+    }
+
+    &__description {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        opacity: 0.8;
+
+        // Tablet: col 1, row 2 (below text, beside image)
+        @include respond-to(md) {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        @include respond-to(sm) {
+            grid-column: auto;
+            grid-row: auto;
+        }
+
+        p {
+            font-family: $font-book;
+            font-size: $fs-body;
+            line-height: $lh-loose;
+            color: $color-text;
+
+            @include respond-to(sm) {
+                font-size: 15px;
+            }
+
+            &+p {
+                margin-top: 1em;
+            }
+        }
+    }
+}

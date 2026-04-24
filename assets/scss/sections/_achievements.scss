@@ -1,0 +1,141 @@
+@use '../abstracts' as *;
+
+.achievements {
+    padding: 40px 0 72px;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+
+    @include respond-to(sm) {
+        padding: 24px 0 40px;
+        gap: 20px;
+    }
+
+    &__grid {
+        display: grid;
+        gap: 34px;
+
+        @include respond-to(md) {
+            gap: 20px;
+        }
+
+        @include respond-to(sm) {
+            gap: 16px;
+        }
+
+        &--three {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            margin-bottom: 34px;
+
+            @include respond-to(md) {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            @include respond-to(sm) {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        &--two {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            @include respond-to(sm) {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+
+    &__card {
+        @include glass(rgba(242, 241, 237, 0.1), 14.15px, rgba(255, 255, 255, 0.2));
+        min-height: 260px;
+        border-radius: $radius-card;
+        padding: 24px 28px 24px 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 24px;
+        overflow: hidden;
+
+        @include respond-to(md) {
+            min-height: 220px;
+        }
+
+        @include respond-to(sm) {
+            min-height: 188px;
+            padding: 18px 18px 20px;
+            gap: 20px;
+        }
+    }
+
+    &__label {
+        max-width: 18ch;
+        font-family: $font-book;
+        font-size: fluid(22, 32);
+        line-height: 1.12;
+        letter-spacing: 0;
+        color: $color-text;
+        font-weight: 400;
+        text-transform: none;
+
+        @include respond-to(sm) {
+            max-width: none;
+            font-size: 20px;
+        }
+    }
+
+    &__value {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        gap: 0;
+        font-family: $font-primary;
+        font-size: fluid(72, 136);
+        line-height: $lh-tight;
+        color: $color-accent;
+        white-space: nowrap;
+        margin-top: auto;
+
+        &--plus::before {
+            content: '+';
+            display: inline-block;
+            font-size: inherit;
+            line-height: inherit;
+            color: inherit;
+        }
+    }
+
+    &__odometer {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        color: inherit;
+    }
+
+    &__suffix {
+        display: inline-block;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        color: inherit;
+    }
+
+    .odometer.odometer-auto-theme,
+    .odometer.odometer-theme-default {
+        font-family: inherit;
+        line-height: 1;
+    }
+
+    .odometer-formatting-mark {
+        color: inherit;
+    }
+
+    .odometer-value,
+    .odometer-digit,
+    .odometer-digit-spacer,
+    .odometer-digit-inner,
+    .odometer-ribbon,
+    .odometer-ribbon-inner,
+    .odometer-value {
+        font-family: inherit;
+    }
+}

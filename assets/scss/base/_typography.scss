@@ -1,0 +1,86 @@
+@use '../abstracts' as *;
+
+// ============================================================
+// Headings — fluid scale: 1199px (min) → 1920px (max)
+//
+//  h1  60px  → 120px
+//  h2  42px  →  70px
+//  h3  30px  →  48px
+//  h4  22px  →  32px
+//  h5  18px  →  24px
+//  h6  14px  →  18px
+// ============================================================
+
+h1 {
+    font-family: $font-primary;
+    font-size: fluid(60, 120);
+    font-weight: normal;
+    line-height: $lh-tight;
+    letter-spacing: $ls-heading;
+    text-transform: uppercase;
+    color: $color-text;
+}
+
+h2 {
+    font-family: $font-primary;
+    font-size: fluid(42, 70);
+    font-weight: normal;
+    line-height: $lh-tight;
+    letter-spacing: $ls-heading;
+    text-transform: uppercase;
+    color: $color-text;
+}
+
+h3 {
+    font-family: $font-primary;
+    font-size: fluid(30, 48);
+    font-weight: normal;
+    line-height: $lh-normal;
+    letter-spacing: $ls-heading;
+    text-transform: uppercase;
+    color: $color-text;
+}
+
+h4 {
+    font-family: $font-primary;
+    font-size: fluid(22, 32);
+    font-weight: normal;
+    line-height: $lh-normal;
+    letter-spacing: $ls-heading;
+    color: $color-text;
+}
+
+h5 {
+    font-family: $font-book;
+    font-size: fluid(18, 24);
+    font-weight: normal;
+    line-height: $lh-normal;
+    letter-spacing: $ls-body;
+    color: $color-text;
+}
+
+h6 {
+    font-family: $font-book;
+    font-size: fluid(14, 18);
+    font-weight: normal;
+    line-height: $lh-loose;
+    letter-spacing: $ls-body;
+    color: $color-text-muted;
+}
+
+p {
+    font-family: $font-book;
+    line-height: $lh-loose;
+    letter-spacing: $ls-body;
+    color: $color-text;
+}
+
+// ============================================================
+// Utility classes
+// ============================================================
+.text-accent   { color: $color-accent; }
+.text-muted    { color: $color-text-muted; }
+.text-dim      { color: $color-text-dim; }
+.uppercase     { text-transform: uppercase; }
+.font-primary  { font-family: $font-primary; }
+.font-book     { font-family: $font-book; }

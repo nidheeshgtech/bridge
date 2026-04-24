@@ -1,0 +1,179 @@
+@use '../abstracts' as *;
+
+.services {
+    position: relative;
+    background: $color-bg;
+    padding: 64px 0 72px;
+
+    @include respond-to(sm) {
+        padding: 40px 0 40px;
+    }
+
+    &__header {
+        margin-bottom: 48px;
+
+        @include respond-to(sm) {
+            margin-bottom: 28px;
+        }
+    }
+
+    &__title {
+        color: $color-text;
+    }
+
+    &__stack {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__card {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        padding: 30px 36px;
+        border-radius: 12px;
+        border: 1px solid #232323;
+        background: #161616;
+        overflow: hidden;
+        will-change: transform, opacity;
+        backface-visibility: hidden;
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14);
+        transition:
+            background 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+            border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+            box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+
+        &:hover {
+            background: #1b1b1b;
+            border-color: #303030;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        @include respond-to(md) {
+            padding: 24px 22px;
+            gap: 20px;
+        }
+
+        @include respond-to(sm) {
+            gap: 14px;
+            padding: 22px 16px;
+        }
+    }
+
+    &__shim,
+    &__glow,
+    &__bar {
+        position: absolute;
+        pointer-events: none;
+    }
+
+    &__shim {
+        inset: 0;
+        background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+        transform: translateX(-150%);
+    }
+
+    &__bar {
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: $color-accent;
+        transform: scaleY(0);
+        transform-origin: bottom;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+        .services__card:hover & {
+            transform: scaleY(1);
+        }
+    }
+
+    &__glow {
+        inset: 0;
+        background: rgba(229, 90, 28, 0.08);
+        opacity: 0;
+        transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+
+        .services__card:hover & {
+            opacity: 1;
+        }
+    }
+
+    &__index {
+        position: relative;
+        z-index: 1;
+        min-width: 72px;
+        font-family: $font-primary;
+        font-size: clamp(42px, 5.2vw, 68px);
+        line-height: 1;
+        color: #2a2a2a;
+        opacity: 1;
+        transition:
+            color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+            transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+            opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+
+        .services__card:hover & {
+            color: $color-accent;
+            transform: scale(1.05) translateX(4px);
+        }
+
+        @include respond-to(sm) {
+            min-width: 48px;
+            font-size: clamp(32px, 7vw, 48px);
+        }
+    }
+
+    &__name {
+        position: relative;
+        z-index: 1;
+        flex: 1;
+        min-width: 0;
+        font-family: $font-primary;
+        font-size: clamp(13px, 1.6vw, 16px);
+        line-height: 1.1;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: $color-accent;
+        opacity: 1;
+        transition:
+            letter-spacing 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+            transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+            opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+
+        .services__card:hover & {
+            letter-spacing: 3px;
+            transform: translateX(2px);
+        }
+    }
+
+    &__arrow {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        width: 24px;
+        height: 24px;
+        color: #2b2b2b;
+        opacity: 1;
+        transition:
+            transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+            color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+            opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+
+        svg {
+            display: block;
+            width: 18px;
+            height: 18px;
+        }
+
+        .services__card:hover & {
+            color: $color-accent;
+            transform: translate(6px, -2px);
+        }
+    }
+}
