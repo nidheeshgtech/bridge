@@ -782,37 +782,41 @@ if (revealEls.length) {
     gsap.registerPlugin(ScrollTrigger);
 
     const fromOpacity = [1, 0.5, 0.2, 0.1];
-    const fromTextOp  = [1, 0.45, 0.18, 0.08];
-    const fromY       = [0, 32, 64, 96];
+    const fromTextOp = [1, 0.45, 0.18, 0.08];
+    const fromY = [0, 32, 64, 96];
+
+    // Set initial skew state before observer fires
+    gsap.set(cards, { skewX: 8, skewY: 3, transformOrigin: 'right bottom' });
 
     // Observe each card individually — fires when THAT card enters the viewport
     const cardObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
 
-            const card  = entry.target;
+            const card = entry.target;
             const index = cards.indexOf(card);
             const indexEl = card.querySelector('.services__index');
-            const nameEl  = card.querySelector('.services__name');
+            const nameEl = card.querySelector('.services__name');
             const arrowEl = card.querySelector('.services__arrow');
-            const shim    = document.getElementById(`servicesShim${index}`);
+            const shim = document.getElementById(`servicesShim${index}`);
+            const staggerDelay = index * 0.12;
 
             cardObserver.unobserve(card);
 
             gsap.fromTo(card,
-                { opacity: fromOpacity[index], y: fromY[index] },
-                { opacity: 1, y: 0, duration: 1.8, ease: 'power3.out', clearProps: 'transform', immediateRender: false }
+                { opacity: fromOpacity[index], y: fromY[index], skewX: 8, skewY: 3 },
+                { opacity: 1, y: 0, skewX: 0, skewY: 0, duration: 1.8, delay: staggerDelay, ease: 'power3.out', clearProps: 'transform', immediateRender: false }
             );
 
             gsap.fromTo([indexEl, nameEl, arrowEl],
                 { opacity: fromTextOp[index] },
-                { opacity: 1, duration: 1.5, delay: 0.1, ease: 'power2.out', immediateRender: false }
+                { opacity: 1, duration: 1.5, delay: 0.1 + staggerDelay, ease: 'power2.out', immediateRender: false }
             );
 
             if (shim) {
                 gsap.fromTo(shim,
                     { x: '-150%', opacity: 0.35 },
-                    { x: '220%', opacity: 0.65, duration: 1.2, delay: 0.15, ease: 'power2.out', immediateRender: false }
+                    { x: '220%', opacity: 0.65, duration: 1.2, delay: 0.15 + staggerDelay, ease: 'power2.out', immediateRender: false }
                 );
             }
         });
@@ -1053,7 +1057,7 @@ if (revealEls.length) {
     });
 })();
 
-// ── Active nav link on scroll ───────────────────────────────
+// ── Active nav link on scroll and top-sticky navbar ───────────────────────────────
 const sections = document.querySelectorAll('main [id]');
 const navItems = document.querySelectorAll('.navbar__item');
 
