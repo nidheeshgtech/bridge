@@ -1,6 +1,6 @@
 // ── Hamburger toggle ────────────────────────────────────────
 const hamburger = document.querySelector('.navbar__hamburger');
-const navbar    = document.querySelector('.navbar');
+const navbar = document.querySelector('.navbar');
 const siteHeader = document.querySelector('.site-header');
 let lenisInstance = null;
 
@@ -18,6 +18,75 @@ if (hamburger) {
         });
     });
 }
+
+// ── Search overlay ───────────────────────────────────────────
+(function () {
+    // Inject overlay HTML once
+    const overlay = document.createElement('div');
+    overlay.className = 'search-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Search');
+    overlay.id = 'searchOverlay';
+    overlay.innerHTML = `
+        <button class="search-overlay__close" id="searchClose" aria-label="Close search">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+        </button>
+        <div class="search-overlay__inner">
+            <p class="search-overlay__hint">What are you looking for?</p>
+            <form class="search-overlay__form" role="search" action="#" method="get">
+                <span class="search-overlay__icon">
+                    <svg viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.1383 16.5873L9.8575 10.5273C9.3575 10.9256 8.7825 11.2374 8.1325 11.4625C7.4825 11.6876 6.81008 11.8002 6.11525 11.8002C4.40608 11.8002 2.95958 11.2292 1.77575 10.0874C0.591917 8.94552 0 7.55024 0 5.90153C0 4.25298 0.59175 2.85722 1.77525 1.71423C2.95875 0.571412 4.40492 0 6.11375 0C7.82242 0 9.26908 0.571089 10.4537 1.71327C11.6382 2.85545 12.2305 4.25105 12.2305 5.90008C12.2305 6.58912 12.1107 7.24721 11.871 7.87434C11.6312 8.50147 11.3113 9.04691 10.9113 9.51066L17.192 15.5704L16.1383 16.5873ZM6.11525 10.3532C7.40375 10.3532 8.49508 9.92175 9.38925 9.05889C10.2836 8.19618 10.7308 7.14325 10.7308 5.90008C10.7308 4.65692 10.2836 3.60398 9.38925 2.74128C8.49508 1.87841 7.40375 1.44698 6.11525 1.44698C4.82675 1.44698 3.73542 1.87841 2.84125 2.74128C1.94692 3.60398 1.49975 4.65692 1.49975 5.90008C1.49975 7.14325 1.94692 8.19618 2.84125 9.05889C3.73542 9.92175 4.82675 10.3532 6.11525 10.3532Z" fill="currentColor"/>
+                    </svg>
+                </span>
+                <input class="search-overlay__input" type="search" name="q" placeholder="Search…" autocomplete="off" autocorrect="off" spellcheck="false">
+                <button class="search-overlay__submit" type="submit" aria-label="Submit search">
+                    <svg viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 11L11 2M11 2H5M11 2V8" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </form>
+            <div class="search-overlay__footer">
+                <kbd>Esc</kbd><span>to close</span>
+                <span style="margin-left:8px"><kbd>↵</kbd><span style="margin-left:8px">to search</span></span>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(overlay);
+
+    const input = overlay.querySelector('.search-overlay__input');
+    const closeBtn = overlay.querySelector('.search-overlay__close');
+    const searchBtns = document.querySelectorAll('.navbar__search');
+
+    const openSearch = () => {
+        overlay.classList.add('search-overlay--open');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => input && input.focus(), 80);
+    };
+
+    const closeSearch = () => {
+        overlay.classList.remove('search-overlay--open');
+        document.body.style.overflow = '';
+    };
+
+    searchBtns.forEach(btn => btn.addEventListener('click', openSearch));
+    closeBtn.addEventListener('click', closeSearch);
+
+    // Click backdrop to close
+    overlay.addEventListener('click', e => {
+        if (e.target === overlay) closeSearch();
+    });
+
+    // Escape key
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && overlay.classList.contains('search-overlay--open')) {
+            closeSearch();
+        }
+    });
+})();
 
 // ── Smooth scroll ───────────────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -277,41 +346,84 @@ if (revealEls.length) {
 
 // ── Services page tabs (.services-page) ────────────────────
 (function () {
-    const navItems = document.querySelectorAll('.services-page__nav-item[data-service-target]');
-    const panels = document.querySelectorAll('.services-page__content[data-service-panel]');
-    const mobileSelect = document.querySelector('.services-page__mobile-select');
+    const page = document.querySelector('.services-page');
+    if (!page) return;
 
-    if (!navItems.length || !panels.length) return;
+    const navItems = Array.from(page.querySelectorAll('.services-page__nav-item[data-service-target]'));
+    const mobileTabs = Array.from(page.querySelectorAll('.services-page__mobile-tab[data-service-target]'));
+    const allTriggers = [...navItems, ...mobileTabs];
+    const panels = Array.from(page.querySelectorAll('.services-page__content[data-service-panel]'));
 
-    const setActiveService = targetId => {
-        navItems.forEach(item => {
-            const isActive = item.dataset.serviceTarget === targetId;
-            item.classList.toggle('services-page__nav-item--active', isActive);
-            item.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    if (!allTriggers.length || !panels.length) return;
+
+    let activeId = (navItems.find(b => b.classList.contains('services-page__nav-item--active')) || navItems[0]).dataset.serviceTarget;
+    let isAnimating = false;
+
+    const updateTriggers = targetId => {
+        navItems.forEach(btn => {
+            const on = btn.dataset.serviceTarget === targetId;
+            btn.classList.toggle('services-page__nav-item--active', on);
+            btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        mobileTabs.forEach(btn => {
+            const on = btn.dataset.serviceTarget === targetId;
+            btn.classList.toggle('services-page__mobile-tab--active', on);
+            btn.setAttribute('aria-pressed', on ? 'true' : 'false');
         });
 
-        panels.forEach(panel => {
-            const isActive = panel.dataset.servicePanel === targetId;
-            panel.hidden = !isActive;
-            panel.classList.toggle('services-page__content--active', isActive);
-        });
-
-        if (mobileSelect && mobileSelect.value !== targetId) {
-            mobileSelect.value = targetId;
+        // scroll active mobile tab into view
+        const activeTab = mobileTabs.find(b => b.dataset.serviceTarget === targetId);
+        if (activeTab) {
+            activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         }
     };
 
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            setActiveService(item.dataset.serviceTarget);
-        });
-    });
+    const switchTo = targetId => {
+        if (targetId === activeId || isAnimating) return;
 
-    if (mobileSelect) {
-        mobileSelect.addEventListener('change', event => {
-            setActiveService(event.target.value);
+        const outPanel = panels.find(p => p.dataset.servicePanel === activeId);
+        const inPanel = panels.find(p => p.dataset.servicePanel === targetId);
+        if (!outPanel || !inPanel) return;
+
+        isAnimating = true;
+        activeId = targetId;
+        updateTriggers(targetId);
+
+        if (!window.gsap || prefersReducedMotion) {
+            outPanel.hidden = true;
+            inPanel.hidden = false;
+            isAnimating = false;
+            return;
+        }
+
+        gsap.to(outPanel, {
+            opacity: 0,
+            y: -12,
+            duration: 0.2,
+            ease: 'power2.in',
+            onComplete() {
+                outPanel.hidden = true;
+                gsap.set(outPanel, { opacity: 1, y: 0 });
+                inPanel.hidden = false;
+
+                gsap.fromTo(inPanel,
+                    { opacity: 0, y: 20 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.5,
+                        ease: 'power3.out',
+                        clearProps: 'opacity,transform',
+                        onComplete() { isAnimating = false; }
+                    }
+                );
+            }
         });
-    }
+    };
+
+    allTriggers.forEach(btn => {
+        btn.addEventListener('click', () => switchTo(btn.dataset.serviceTarget));
+    });
 })();
 
 // ── News page filters & pagination (.news-page) ────────────
@@ -469,6 +581,158 @@ if (revealEls.length) {
     });
 })();
 
+// ── Articles page filters & pagination (.articles-page) ───
+(function () {
+    const articlesPages = Array.from(document.querySelectorAll('[data-articles-page]'));
+
+    if (!articlesPages.length) return;
+
+    articlesPages.forEach(page => {
+        const tabs = Array.from(page.querySelectorAll('[data-article-filter]'));
+        const select = page.querySelector('.articles-page__select');
+        const list = page.querySelector('[data-articles-list]');
+        const entries = Array.from(page.querySelectorAll('[data-article-entry]'));
+        const prevButton = page.querySelector('[data-articles-prev]');
+        const nextButton = page.querySelector('[data-articles-next]');
+        const pageList = page.querySelector('[data-articles-page-list]');
+        const perPage = 4;
+        let activeCategory = 'all';
+        let currentPage = 1;
+
+        if (!list || !entries.length || !pageList) return;
+
+        const getFilteredEntries = () => {
+            if (activeCategory === 'all') return entries;
+
+            return entries.filter(entry => {
+                const categories = (entry.dataset.articleCategories || '')
+                    .split(',')
+                    .map(value => value.trim())
+                    .filter(Boolean);
+
+                return categories.includes(activeCategory);
+            });
+        };
+
+        const updateFilterControls = () => {
+            tabs.forEach(tab => {
+                const isActive = tab.dataset.articleFilter === activeCategory;
+                tab.classList.toggle('articles-page__tab--active', isActive);
+                tab.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            });
+
+            if (select && select.value !== activeCategory) {
+                select.value = activeCategory;
+            }
+        };
+
+        const buildPagination = totalPages => {
+            pageList.innerHTML = '';
+
+            for (let pageNumber = 1; pageNumber <= totalPages; pageNumber += 1) {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'articles-page__page-button';
+                button.textContent = String(pageNumber);
+                button.dataset.articlesPage = String(pageNumber);
+
+                if (pageNumber === currentPage) {
+                    button.classList.add('articles-page__page-button--active');
+                    button.setAttribute('aria-current', 'page');
+                }
+
+                button.addEventListener('click', () => {
+                    if (currentPage === pageNumber) return;
+                    currentPage = pageNumber;
+                    render(true);
+                });
+
+                pageList.appendChild(button);
+            }
+
+            if (prevButton) prevButton.disabled = currentPage === 1;
+            if (nextButton) nextButton.disabled = currentPage === totalPages;
+        };
+
+        const animateVisibleEntries = visibleEntries => {
+            if (!window.gsap || prefersReducedMotion || !visibleEntries.length) return;
+
+            gsap.fromTo(visibleEntries,
+                { autoAlpha: 0, y: 28 },
+                {
+                    autoAlpha: 1,
+                    y: 0,
+                    duration: 0.55,
+                    stagger: 0.08,
+                    ease: 'power2.out',
+                    clearProps: 'opacity,visibility,transform'
+                }
+            );
+        };
+
+        const render = animate => {
+            const filteredEntries = getFilteredEntries();
+            const totalPages = Math.max(1, Math.ceil(filteredEntries.length / perPage));
+
+            if (currentPage > totalPages) {
+                currentPage = totalPages;
+            }
+
+            const start = (currentPage - 1) * perPage;
+            const visibleEntries = filteredEntries.slice(start, start + perPage);
+
+            entries.forEach(entry => {
+                entry.hidden = !visibleEntries.includes(entry);
+            });
+
+            updateFilterControls();
+            buildPagination(totalPages);
+
+            if (animate) {
+                animateVisibleEntries(visibleEntries);
+            }
+        };
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const nextCategory = tab.dataset.articleFilter || 'all';
+                if (nextCategory === activeCategory) return;
+
+                activeCategory = nextCategory;
+                currentPage = 1;
+                render(true);
+            });
+        });
+
+        if (select) {
+            select.addEventListener('change', event => {
+                activeCategory = event.target.value || 'all';
+                currentPage = 1;
+                render(true);
+            });
+        }
+
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                if (currentPage === 1) return;
+                currentPage -= 1;
+                render(true);
+            });
+        }
+
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                const totalPages = Math.max(1, Math.ceil(getFilteredEntries().length / perPage));
+                if (currentPage >= totalPages) return;
+                currentPage += 1;
+                render(true);
+            });
+        }
+
+        render(false);
+    });
+})();
+
 // ── Case study modal (.case-study-modal) ──────────────────
 (function () {
     const modal = document.querySelector('[data-case-study-modal]');
@@ -508,75 +772,51 @@ if (revealEls.length) {
 // ── Services cards (.services) ─────────────────────────────
 (function () {
     const stack = document.getElementById('servicesStack');
+    const pinWrap = document.getElementById('servicesPinWrap');
     const cards = stack ? Array.from(stack.querySelectorAll('[data-service-card]')) : [];
 
-    if (!cards.length || !window.gsap || !window.ScrollTrigger || prefersReducedMotion) return;
+    if (!cards.length || !pinWrap || !window.gsap || !window.ScrollTrigger || prefersReducedMotion) return;
 
     gsap.registerPlugin(ScrollTrigger);
 
-    const initialCardOpacity = [1, 0.78, 0.5, 0.24];
-    const initialTextOpacity = [1, 0.74, 0.46, 0.18];
-    const travelY = [0, 44, 88, 132];
+    const fromOpacity = [1, 0.5, 0.2, 0.1];
+    const fromTextOp  = [1, 0.45, 0.18, 0.08];
+    const fromY       = [0, 32, 64, 96];
 
-    cards.forEach((card, index) => {
-        const indexEl = card.querySelector('.services__index');
-        const nameEl = card.querySelector('.services__name');
-        const arrowEl = card.querySelector('.services__arrow');
-        const shim = document.getElementById(`servicesShim${index}`);
+    // Observe each card individually — fires when THAT card enters the viewport
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
 
-        gsap.set(card, {
-            opacity: initialCardOpacity[index],
-            y: travelY[index]
-        });
+            const card  = entry.target;
+            const index = cards.indexOf(card);
+            const indexEl = card.querySelector('.services__index');
+            const nameEl  = card.querySelector('.services__name');
+            const arrowEl = card.querySelector('.services__arrow');
+            const shim    = document.getElementById(`servicesShim${index}`);
 
-        gsap.set([indexEl, nameEl, arrowEl], {
-            opacity: initialTextOpacity[index]
-        });
+            cardObserver.unobserve(card);
 
-        if (shim) {
-            gsap.set(shim, {
-                x: '-150%',
-                opacity: 0.35
-            });
-        }
-    });
+            gsap.fromTo(card,
+                { opacity: fromOpacity[index], y: fromY[index] },
+                { opacity: 1, y: 0, duration: 1.8, ease: 'power3.out', clearProps: 'transform', immediateRender: false }
+            );
 
-    cards.forEach((card, index) => {
-        const indexEl = card.querySelector('.services__index');
-        const nameEl = card.querySelector('.services__name');
-        const arrowEl = card.querySelector('.services__arrow');
-        const shim = document.getElementById(`servicesShim${index}`);
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: card,
-                start: 'top bottom',
-                end: 'top 45%',
-                scrub: 0.9
+            gsap.fromTo([indexEl, nameEl, arrowEl],
+                { opacity: fromTextOp[index] },
+                { opacity: 1, duration: 1.5, delay: 0.1, ease: 'power2.out', immediateRender: false }
+            );
+
+            if (shim) {
+                gsap.fromTo(shim,
+                    { x: '-150%', opacity: 0.35 },
+                    { x: '220%', opacity: 0.65, duration: 1.2, delay: 0.15, ease: 'power2.out', immediateRender: false }
+                );
             }
         });
+    }, { threshold: 0.25 });
 
-        tl.to(card, {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            ease: 'none'
-        }, 0);
-
-        tl.to([indexEl, nameEl, arrowEl], {
-            opacity: 1,
-            duration: 0.42,
-            ease: 'none'
-        }, 0.02);
-
-        if (shim) {
-            tl.to(shim, {
-                x: '220%',
-                opacity: 0.65,
-                duration: 0.34,
-                ease: 'none'
-            }, 0.04);
-        }
-    });
+    cards.forEach(card => cardObserver.observe(card));
 })();
 
 // ── Ecosystem marquee (.ecosystem) ─────────────────────────

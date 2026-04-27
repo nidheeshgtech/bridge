@@ -1,11 +1,9 @@
 @use '../abstracts' as *;
 
 .ecosystem-page {
-    padding-top: 140px;
     padding-bottom: 40px;
 
     @include respond-to(sm) {
-        padding-top: 110px;
         padding-bottom: 24px;
     }
 

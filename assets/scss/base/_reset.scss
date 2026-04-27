@@ -49,3 +49,16 @@ input, textarea {
     outline: none;
     background: none;
 }
+
+// ── Inner page top padding ─────────────────────────────────
+.inner-page-top {
+    padding-top: 150px;
+
+    @media (max-width: 1024px) {
+        padding-top: 120px;
+    }
+
+    @media (max-width: 768px) {
+        padding-top: 100px;
+    }
+}

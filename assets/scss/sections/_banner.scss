@@ -161,3 +161,11 @@
         }
     }
 }
+
+.about-wrap {
+    padding-top: 70px;
+
+    @include respond-to(sm) {
+        padding-top: 20px;
+    }
+}

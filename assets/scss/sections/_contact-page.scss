@@ -1,0 +1,30 @@
+@use '../abstracts' as *;
+
+.contact-page {
+    background: #141414;
+    min-height: 100vh;
+
+    &__section {
+        padding-top: 0;
+    }
+
+    &__title {
+        font-size: fluid(48, 88);
+        line-height: 0.95;
+        text-transform: uppercase;
+        margin-bottom: 28px;
+
+        @include respond-to(md) {
+            font-size: clamp(40px, 8vw, 64px);
+        }
+
+        @include respond-to(sm) {
+            font-size: clamp(36px, 10vw, 52px);
+            margin-bottom: 20px;
+        }
+    }
+
+    &__footer {
+        margin-top: 0;
+    }
+}

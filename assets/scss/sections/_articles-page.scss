@@ -1,0 +1,213 @@
+@use '../abstracts' as *;
+
+.articles-page {
+    background: #141414;
+    min-height: 100vh;
+
+    &__section {
+        padding: 40px 0 72px;
+
+        @include respond-to(sm) {
+            padding: 24px 0 48px;
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 48px;
+
+        @include respond-to(md) {
+            margin-bottom: 36px;
+        }
+
+        @include respond-to(sm) {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 28px;
+        }
+    }
+
+    &__title {
+        @include section-heading;
+        color: #f8f8f6;
+        max-width: 680px;
+    }
+
+    &__filters {
+        display: none;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 40px;
+
+        @include respond-to(md) {
+            margin-bottom: 28px;
+        }
+
+        @include respond-to(sm) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+    }
+
+    &__tabs {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        @include respond-to(sm) {
+            display: none;
+        }
+    }
+
+    &__tab {
+        display: inline-flex;
+        align-items: center;
+        height: 37px;
+        padding: 0 16px;
+        border-radius: 20px;
+        border: 1px solid #2e2e2e;
+        background: transparent;
+        font-family: $font-book;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        color: #888;
+        cursor: pointer;
+        transition:
+            background 0.25s ease,
+            border-color 0.25s ease,
+            color 0.25s ease;
+
+        &:hover {
+            border-color: #444;
+            color: #ccc;
+        }
+
+        &--active {
+            background: $color-accent;
+            border-color: $color-accent;
+            color: #fff;
+
+            &:hover {
+                background: #d9420d;
+                border-color: #d9420d;
+                color: #fff;
+            }
+        }
+    }
+
+    &__select-wrap {
+        display: none;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+
+        @include respond-to(sm) {
+            display: flex;
+        }
+    }
+
+    &__select-label {
+        font-family: $font-book;
+        font-size: 13px;
+        color: #888;
+        white-space: nowrap;
+    }
+
+    &__select {
+        appearance: none;
+        -webkit-appearance: none;
+        padding: 8px 32px 8px 14px;
+        border-radius: 20px;
+        border: 1px solid #2e2e2e;
+        background: #1a1a1a url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1L6 7L11 1' stroke='%23888' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 12px center;
+        font-family: $font-book;
+        font-size: 13px;
+        color: #ccc;
+        cursor: pointer;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+            outline: none;
+            border-color: $color-accent;
+        }
+    }
+
+    &__grid {
+        margin-bottom: 48px;
+
+        @include respond-to(sm) {
+            margin-bottom: 32px;
+        }
+    }
+
+    &__pagination {
+        display: none;
+        align-items: center;
+        gap: 6px;
+        justify-content: center;
+        margin-bottom: 72px;
+
+        @include respond-to(sm) {
+            margin-bottom: 48px;
+        }
+    }
+
+    &__page-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 36px;
+        height: 36px;
+        padding: 0 6px;
+        border-radius: 8px;
+        border: 1px solid #2e2e2e;
+        background: transparent;
+        font-family: $font-book;
+        font-size: 13px;
+        color: #888;
+        cursor: pointer;
+        transition:
+            background 0.2s ease,
+            border-color 0.2s ease,
+            color 0.2s ease;
+
+        &:hover {
+            border-color: #444;
+            color: #ccc;
+        }
+
+        &--active {
+            background: $color-accent;
+            border-color: $color-accent;
+            color: #fff;
+        }
+
+        &--icon {
+            svg {
+                display: block;
+            }
+        }
+
+        &:disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+    }
+
+    &__page-list {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    &__footer {
+        margin-top: 0;
+    }
+}

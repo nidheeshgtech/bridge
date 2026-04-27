@@ -39,10 +39,10 @@
                         <a href="index.html#news" class="navbar__link">News</a>
                     </li>
                     <li class="navbar__item">
-                        <a href="index.html#articles" class="navbar__link">Articles</a>
+                        <a href="articles.html" class="navbar__link">Articles</a>
                     </li>
                     <li class="navbar__item">
-                        <a href="index.html#contact" class="navbar__link">Contact Us</a>
+                        <a href="contact-us.html" class="navbar__link">Contact Us</a>
                     </li>
                 </ul>
                 <div class="navbar__right">
@@ -64,7 +64,7 @@
         </div>
     </header>
 
-    <main class="services-page">
+    <main class="services-page inner-page-top">
         <section class="services-page__hero">
             <div class="container">
                 <div class="row">
@@ -84,15 +84,15 @@
                     <div class="col-12">
                         <div class="services-page__panel">
                             <aside class="services-page__nav revealmetop">
-                                <label class="services-page__mobile-select-wrap" for="services-page-select">
-                                    <span class="services-page__mobile-label">Select Service</span>
-                                    <select class="services-page__mobile-select" id="services-page-select" aria-label="Select service">
-                                        <option value="service-01">01 Strategic Consulting</option>
-                                        <option value="service-02">02 Business Transformation and Advanced Solutions</option>
-                                        <option value="service-03">03 Upskilling Programs</option>
-                                        <option value="service-04">04 Hackathons, Makeathons, Innovation Challenges</option>
-                                    </select>
-                                </label>
+                                <div class="services-page__mobile-select-wrap">
+                                    <span class="services-page__mobile-label">Service</span>
+                                    <div class="services-page__mobile-tabs" role="tablist" aria-label="Select service">
+                                        <button class="services-page__mobile-tab services-page__mobile-tab--active" type="button" data-service-target="service-01" aria-pressed="true">01 Strategic Consulting</button>
+                                        <button class="services-page__mobile-tab" type="button" data-service-target="service-02" aria-pressed="false">02 Business Transformation</button>
+                                        <button class="services-page__mobile-tab" type="button" data-service-target="service-03" aria-pressed="false">03 Upskilling Programs</button>
+                                        <button class="services-page__mobile-tab" type="button" data-service-target="service-04" aria-pressed="false">04 Hackathons &amp; Challenges</button>
+                                    </div>
+                                </div>
 
                                 <button class="services-page__nav-item services-page__nav-item--active" type="button" data-service-target="service-01" aria-pressed="true">
                                     <span class="services-page__nav-index">01</span>
@@ -267,14 +267,14 @@
                                 <a href="our-services.html">Our Services</a>
                                 <a href="index.html#ecosystem">Our Ecosystem</a>
                                 <a href="index.html#news">News</a>
-                                <a href="index.html#articles">Articles</a>
-                                <a href="index.html#contact">Contact Us</a>
+                                <a href="articles.html">Articles</a>
+                                <a href="contact-us.html">Contact Us</a>
                             </nav>
 
                             <div class="footer__legal">
                                 <span>Copyright © 2026 EDGE Group PJSC</span>
                                 <span class="footer__dot"></span>
-                                <a href="index.html#contact">Privacy Policy</a>
+                                <a href="contact-us.html">Privacy Policy</a>
                             </div>
                         </footer>
                     </div>
