@@ -17,9 +17,13 @@
 
     &__layout {
         display: grid;
-        grid-template-columns: 650px 1px minmax(0, 1fr);
+        grid-template-columns: 570px 1px minmax(0, 1fr);
         gap: 32px;
         align-items: stretch;
+
+        @media (min-width: 1920px) {
+            grid-template-columns: 690px 1px minmax(0, 1fr);
+        }
 
         @include respond-to(lg) {
             grid-template-columns: 420px 1px minmax(0, 1fr);
