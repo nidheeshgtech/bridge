@@ -1,12 +1,19 @@
 {
-  "functions": {
-    "*.php": {
-      "runtime": "vercel-php@0.7.2"
+  "builds": [
+    {
+      "src": "*.php",
+      "use": "vercel-php@0.7.2"
     }
-  },
+  ],
   "routes": [
-    { "src": "/(.*)\\.php", "dest": "/$1.php" },
     { "src": "/", "dest": "/index.php" },
-    { "src": "/(about-us|our-services|ecosystem|news|news-detail|articles|contact-us)", "dest": "/$1.php" }
+    { "src": "/about-us", "dest": "/about-us.php" },
+    { "src": "/our-services", "dest": "/our-services.php" },
+    { "src": "/ecosystem", "dest": "/ecosystem.php" },
+    { "src": "/news", "dest": "/news.php" },
+    { "src": "/news-detail", "dest": "/news-detail.php" },
+    { "src": "/articles", "dest": "/articles.php" },
+    { "src": "/contact-us", "dest": "/contact-us.php" },
+    { "src": "/(.*)", "dest": "/$1" }
   ]
 }
