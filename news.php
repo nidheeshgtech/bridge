@@ -46,7 +46,7 @@ $activePage = 'news';
 
                                 <div class="news__grid">
                                     <div class="news__lead">
-                                        <h2 class="news__headline">BRIEDGE LIF EXPANDS SMART FACTORY SOLUTIONS IN COLLABORATION WITH GLOBAL TECH LEADERS</h2>
+                                        <h2 class="news__headline title-animation">BRIEDGE LIF EXPANDS SMART FACTORY SOLUTIONS IN COLLABORATION WITH GLOBAL TECH LEADERS</h2>
                                         <a class="news__readmore btn" href="news-detail.php">
                                             <span>Read More</span>
                                             <span class="btn__icon" aria-hidden="true">
@@ -77,7 +77,7 @@ $activePage = 'news';
 
                                 <div class="news__grid">
                                     <div class="news__lead">
-                                        <h2 class="news__headline">12,458+ PROFESSIONALS TRAINED - EMPOWERING THE WORKFORCE FOR INDUSTRY 4.0</h2>
+                                        <h2 class="news__headline title-animation">12,458+ PROFESSIONALS TRAINED - EMPOWERING THE WORKFORCE FOR INDUSTRY 4.0</h2>
                                         <a class="news__readmore btn" href="news-detail.php">
                                             <span>Read More</span>
                                             <span class="btn__icon" aria-hidden="true">
@@ -109,7 +109,7 @@ $activePage = 'news';
 
                                 <div class="news__grid">
                                     <div class="news__lead">
-                                        <h2 class="news__headline">STRENGTHENING OUR ECOSYSTEM - NEW KNOWLEDGE &amp; STRATEGIC PARTNERS JOIN LIF</h2>
+                                        <h2 class="news__headline title-animation">STRENGTHENING OUR ECOSYSTEM - NEW KNOWLEDGE &amp; STRATEGIC PARTNERS JOIN LIF</h2>
                                         <a class="news__readmore btn" href="news-detail.php">
                                             <span>Read More</span>
                                             <span class="btn__icon" aria-hidden="true">
@@ -141,7 +141,7 @@ $activePage = 'news';
 
                                 <div class="news__grid">
                                     <div class="news__lead">
-                                        <h2 class="news__headline">JOINT VENTURES - DRIVING DIGITAL TRANSFORMATION IN MANUFACTURING</h2>
+                                        <h2 class="news__headline title-animation">JOINT VENTURES - DRIVING DIGITAL TRANSFORMATION IN MANUFACTURING</h2>
                                         <a class="news__readmore btn" href="news-detail.php">
                                             <span>Read More</span>
                                             <span class="btn__icon" aria-hidden="true">
@@ -173,7 +173,7 @@ $activePage = 'news';
 
                                 <div class="news__grid">
                                     <div class="news__lead">
-                                        <h2 class="news__headline">BRIDGE DEEPENS INDUSTRY ALLIANCES TO SCALE FUTURE-READY CAPABILITY BUILDING</h2>
+                                        <h2 class="news__headline title-animation">BRIDGE DEEPENS INDUSTRY ALLIANCES TO SCALE FUTURE-READY CAPABILITY BUILDING</h2>
                                         <a class="news__readmore btn" href="news-detail.php">
                                             <span>Read More</span>
                                             <span class="btn__icon" aria-hidden="true">
@@ -205,7 +205,7 @@ $activePage = 'news';
 
                                 <div class="news__grid">
                                     <div class="news__lead">
-                                        <h2 class="news__headline">NEW APPLIED LEARNING TRACKS PREPARE PROFESSIONALS FOR AI-ENABLED OPERATIONS</h2>
+                                        <h2 class="news__headline title-animation">NEW APPLIED LEARNING TRACKS PREPARE PROFESSIONALS FOR AI-ENABLED OPERATIONS</h2>
                                         <a class="news__readmore btn" href="news-detail.php">
                                             <span>Read More</span>
                                             <span class="btn__icon" aria-hidden="true">
@@ -236,7 +236,7 @@ $activePage = 'news';
 
                                 <div class="news__grid">
                                     <div class="news__lead">
-                                        <h2 class="news__headline">CO-CREATION PROGRAMMES TURN INDUSTRIAL CHALLENGES INTO HIGH-IMPACT SOLUTIONS</h2>
+                                        <h2 class="news__headline title-animation">CO-CREATION PROGRAMMES TURN INDUSTRIAL CHALLENGES INTO HIGH-IMPACT SOLUTIONS</h2>
                                         <a class="news__readmore btn" href="news-detail.php">
                                             <span>Read More</span>
                                             <span class="btn__icon" aria-hidden="true">
@@ -268,7 +268,7 @@ $activePage = 'news';
 
                                 <div class="news__grid">
                                     <div class="news__lead">
-                                        <h2 class="news__headline">ECOSYSTEM MOMENTUM CONTINUES WITH NEW INNOVATION CHALLENGE COLLABORATIONS</h2>
+                                        <h2 class="news__headline title-animation">ECOSYSTEM MOMENTUM CONTINUES WITH NEW INNOVATION CHALLENGE COLLABORATIONS</h2>
                                         <a class="news__readmore btn" href="news-detail.php">
                                             <span>Read More</span>
                                             <span class="btn__icon" aria-hidden="true">
