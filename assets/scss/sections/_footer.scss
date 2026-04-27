@@ -4,12 +4,28 @@
     align-items: center;
     gap: 40px;
     margin-top: 40px;
+    padding-bottom: 72px;
     text-align: center;
 
     @media (max-width: 575px) {
         gap: 28px;
         margin-top: 28px;
+        padding-bottom: 48px;
     }
+}
+
+// Per-page top-spacing overrides (footer is now a sibling of <main>)
+.news-page + .footer          { margin-top: 76px; }
+.news-detail-page + .footer   { margin-top: 72px; }
+.services-page + .footer      { margin-top: 42px; }
+.articles-page + .footer,
+.contact-page + .footer       { margin-top: 0; }
+
+@media (max-width: 991px) {
+    .news-page + .footer { margin-top: 56px; }
+}
+@media (max-width: 767px) {
+    .news-detail-page + .footer { margin-top: 48px; }
 }
 
 .footer__line {

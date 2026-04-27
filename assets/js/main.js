@@ -55,7 +55,7 @@ if (hamburger) {
             </div>
         </div>
     `;
-    document.body.appendChild(overlay);
+    document.documentElement.appendChild(overlay);
 
     const input = overlay.querySelector('.search-overlay__input');
     const closeBtn = overlay.querySelector('.search-overlay__close');
@@ -64,12 +64,14 @@ if (hamburger) {
     const openSearch = () => {
         overlay.classList.add('search-overlay--open');
         document.body.style.overflow = 'hidden';
+        if (lenisInstance) lenisInstance.stop();
         setTimeout(() => input && input.focus(), 80);
     };
 
     const closeSearch = () => {
         overlay.classList.remove('search-overlay--open');
         document.body.style.overflow = '';
+        if (lenisInstance) lenisInstance.start();
     };
 
     searchBtns.forEach(btn => btn.addEventListener('click', openSearch));

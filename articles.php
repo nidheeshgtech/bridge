@@ -1,70 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+$pageTitle  = 'BRIDGE — Articles';
+$activePage = 'articles';
+?>
+<?php include 'inc/header.php'; ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRIDGE — Articles</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/fonts.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-</head>
+<main class="articles-page inner-page-top" data-articles-page>
 
-<body>
-
-    <header class="site-header">
-        <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="navbar__logo" aria-label="BRIDGE Home">
-                    <img src="assets/images/logo_bridge.svg" alt="BRIDGE">
-                </a>
-                <ul class="navbar__menu">
-                    <li class="navbar__item">
-                        <a href="index.html" class="navbar__link">Home</a>
-                    </li>
-                    <li class="navbar__item">
-                        <a href="about-us.html" class="navbar__link">About Us</a>
-                    </li>
-                    <li class="navbar__item">
-                        <a href="our-services.html" class="navbar__link">Our Services</a>
-                    </li>
-                    <li class="navbar__item">
-                        <a href="ecosystem.html" class="navbar__link">Our Ecosystem</a>
-                    </li>
-                    <li class="navbar__item">
-                        <a href="news.html" class="navbar__link">News</a>
-                    </li>
-                    <li class="navbar__item navbar__item--active">
-                        <a href="articles.html" class="navbar__link">Articles</a>
-                    </li>
-                    <li class="navbar__item">
-                        <a href="contact-us.html" class="navbar__link">Contact Us</a>
-                    </li>
-                </ul>
-                <div class="navbar__right">
-                    <a href="#" class="navbar__lang" lang="ar" dir="rtl">العربية</a>
-                    <button class="navbar__search" aria-label="Search">
-                        <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M16.1383 16.5873L9.8575 10.5273C9.3575 10.9256 8.7825 11.2374 8.1325 11.4625C7.4825 11.6876 6.81008 11.8002 6.11525 11.8002C4.40608 11.8002 2.95958 11.2292 1.77575 10.0874C0.591917 8.94552 0 7.55024 0 5.90153C0 4.25298 0.59175 2.85722 1.77525 1.71423C2.95875 0.571412 4.40492 0 6.11375 0C7.82242 0 9.26908 0.571089 10.4537 1.71327C11.6382 2.85545 12.2305 4.25105 12.2305 5.90008C12.2305 6.58912 12.1107 7.24721 11.871 7.87434C11.6312 8.50147 11.3113 9.04691 10.9113 9.51066L17.192 15.5704L16.1383 16.5873ZM6.11525 10.3532C7.40375 10.3532 8.49508 9.92175 9.38925 9.05889C10.2836 8.19618 10.7308 7.14325 10.7308 5.90008C10.7308 4.65692 10.2836 3.60398 9.38925 2.74128C8.49508 1.87841 7.40375 1.44698 6.11525 1.44698C4.82675 1.44698 3.73542 1.87841 2.84125 2.74128C1.94692 3.60398 1.49975 4.65692 1.49975 5.90008C1.49975 7.14325 1.94692 8.19618 2.84125 9.05889C3.73542 9.92175 4.82675 10.3532 6.11525 10.3532Z"
-                                fill="white" />
-                        </svg>
-                    </button>
-                    <button class="navbar__hamburger" aria-label="Toggle menu" aria-expanded="false">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <main class="articles-page inner-page-top" data-articles-page>
         <section class="articles-page__section">
             <div class="container">
                 <div class="row">
@@ -111,13 +52,13 @@
                         <div class="articles__grid articles-page__grid" data-articles-list>
 
                             <article class="articles__card" data-article-entry data-article-categories="industry,innovation">
-                                <a class="articles__media" href="news-detail.html" aria-label="Read smart manufacturing article">
+                                <a class="articles__media" href="news-detail.php" aria-label="Read smart manufacturing article">
                                     <img src="assets/images/article-1-image.webp" alt="Smart Manufacturing" loading="lazy">
                                 </a>
                                 <div class="articles__body">
                                     <h2 class="articles__headline">The Future of Smart Manufacturing in the Middle East</h2>
                                     <p class="articles__excerpt">As Industry 4.0 reshapes global production, organisations across the GCC are accelerating their transition to intelligent, connected manufacturing ecosystems driven by AI and IoT.</p>
-                                    <a href="news-detail.html" class="articles__readmore" aria-label="Read smart manufacturing article">
+                                    <a href="news-detail.php" class="articles__readmore" aria-label="Read smart manufacturing article">
                                         <span>Read More</span>
                                         <span class="btn__icon" aria-hidden="true">
                                             <svg class="btn__arrow btn__arrow--a" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -132,13 +73,13 @@
                             </article>
 
                             <article class="articles__card" data-article-entry data-article-categories="technology,digital">
-                                <a class="articles__media" href="news-detail.html" aria-label="Read AI-driven operations article">
+                                <a class="articles__media" href="news-detail.php" aria-label="Read AI-driven operations article">
                                     <img src="assets/images/article-2-image.webp" alt="AI-Driven Operations" loading="lazy">
                                 </a>
                                 <div class="articles__body">
                                     <h2 class="articles__headline">AI-Driven Operations: From Pilot Projects to Full-Scale Deployment</h2>
                                     <p class="articles__excerpt">Organisations that have successfully scaled AI pilots share a common blueprint — clear governance, cross-functional collaboration, and a relentless focus on measurable outcomes.</p>
-                                    <a href="news-detail.html" class="articles__readmore" aria-label="Read AI operations article">
+                                    <a href="news-detail.php" class="articles__readmore" aria-label="Read AI operations article">
                                         <span>Read More</span>
                                         <span class="btn__icon" aria-hidden="true">
                                             <svg class="btn__arrow btn__arrow--a" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -153,13 +94,13 @@
                             </article>
 
                             <article class="articles__card" data-article-entry data-article-categories="leadership,innovation">
-                                <a class="articles__media" href="news-detail.html" aria-label="Read leadership in transformation article">
+                                <a class="articles__media" href="news-detail.php" aria-label="Read leadership in transformation article">
                                     <img src="assets/images/article-3-image.webp" alt="Leadership in Transformation" loading="lazy">
                                 </a>
                                 <div class="articles__body">
                                     <h2 class="articles__headline">Building the Leadership Capability for Industrial Transformation</h2>
                                     <p class="articles__excerpt">Effective digital transformation isn't a technology problem — it's a leadership challenge. Organisations need executives who can navigate complexity, inspire teams, and sustain momentum through change.</p>
-                                    <a href="news-detail.html" class="articles__readmore" aria-label="Read leadership article">
+                                    <a href="news-detail.php" class="articles__readmore" aria-label="Read leadership article">
                                         <span>Read More</span>
                                         <span class="btn__icon" aria-hidden="true">
                                             <svg class="btn__arrow btn__arrow--a" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -174,13 +115,13 @@
                             </article>
 
                             <article class="articles__card" data-article-entry data-article-categories="digital,industry">
-                                <a class="articles__media" href="news-detail.html" aria-label="Read digital factory article">
+                                <a class="articles__media" href="news-detail.php" aria-label="Read digital factory article">
                                     <img src="assets/images/article-4-image.webp" alt="Digital Factory" loading="lazy">
                                 </a>
                                 <div class="articles__body">
                                     <h2 class="articles__headline">Digital Factories: Redefining Industrial Competitiveness</h2>
                                     <p class="articles__excerpt">The digital factory model integrates real-time data, advanced analytics, and automation to deliver unprecedented levels of efficiency, flexibility, and product quality across manufacturing operations.</p>
-                                    <a href="news-detail.html" class="articles__readmore" aria-label="Read digital factory article">
+                                    <a href="news-detail.php" class="articles__readmore" aria-label="Read digital factory article">
                                         <span>Read More</span>
                                         <span class="btn__icon" aria-hidden="true">
                                             <svg class="btn__arrow btn__arrow--a" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -195,13 +136,13 @@
                             </article>
 
                             <article class="articles__card" data-article-entry data-article-categories="technology,innovation">
-                                <a class="articles__media" href="news-detail.html" aria-label="Read IoT ecosystem article">
+                                <a class="articles__media" href="news-detail.php" aria-label="Read IoT ecosystem article">
                                     <img src="assets/images/article-1-image.webp" alt="IoT Ecosystem" loading="lazy">
                                 </a>
                                 <div class="articles__body">
                                     <h2 class="articles__headline">Unlocking the Power of Industrial IoT Ecosystems</h2>
                                     <p class="articles__excerpt">Industrial IoT is no longer a future concept — it's the connective tissue of modern operations, enabling real-time visibility, predictive maintenance, and data-driven decision-making at every level.</p>
-                                    <a href="news-detail.html" class="articles__readmore" aria-label="Read IoT article">
+                                    <a href="news-detail.php" class="articles__readmore" aria-label="Read IoT article">
                                         <span>Read More</span>
                                         <span class="btn__icon" aria-hidden="true">
                                             <svg class="btn__arrow btn__arrow--a" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -216,13 +157,13 @@
                             </article>
 
                             <article class="articles__card" data-article-entry data-article-categories="leadership,digital">
-                                <a class="articles__media" href="news-detail.html" aria-label="Read workforce readiness article">
+                                <a class="articles__media" href="news-detail.php" aria-label="Read workforce readiness article">
                                     <img src="assets/images/article-2-image.webp" alt="Workforce Readiness" loading="lazy">
                                 </a>
                                 <div class="articles__body">
                                     <h2 class="articles__headline">Workforce Readiness for the Age of Intelligent Automation</h2>
                                     <p class="articles__excerpt">As automation reshapes job roles across industries, organisations must invest in reskilling and upskilling strategies that keep their people ahead of the capability curve and engaged in the transformation journey.</p>
-                                    <a href="news-detail.html" class="articles__readmore" aria-label="Read workforce article">
+                                    <a href="news-detail.php" class="articles__readmore" aria-label="Read workforce article">
                                         <span>Read More</span>
                                         <span class="btn__icon" aria-hidden="true">
                                             <svg class="btn__arrow btn__arrow--a" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -237,13 +178,13 @@
                             </article>
 
                             <article class="articles__card" data-article-entry data-article-categories="industry,technology">
-                                <a class="articles__media" href="news-detail.html" aria-label="Read predictive analytics article">
+                                <a class="articles__media" href="news-detail.php" aria-label="Read predictive analytics article">
                                     <img src="assets/images/article-3-image.webp" alt="Predictive Analytics" loading="lazy">
                                 </a>
                                 <div class="articles__body">
                                     <h2 class="articles__headline">Predictive Analytics: Turning Industrial Data into Competitive Advantage</h2>
                                     <p class="articles__excerpt">Manufacturers who harness predictive analytics gain a critical edge — anticipating equipment failures, optimising supply chains, and aligning production with shifting market demand before problems arise.</p>
-                                    <a href="news-detail.html" class="articles__readmore" aria-label="Read predictive analytics article">
+                                    <a href="news-detail.php" class="articles__readmore" aria-label="Read predictive analytics article">
                                         <span>Read More</span>
                                         <span class="btn__icon" aria-hidden="true">
                                             <svg class="btn__arrow btn__arrow--a" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -258,13 +199,13 @@
                             </article>
 
                             <article class="articles__card" data-article-entry data-article-categories="innovation,digital">
-                                <a class="articles__media" href="news-detail.html" aria-label="Read sustainable innovation article">
+                                <a class="articles__media" href="news-detail.php" aria-label="Read sustainable innovation article">
                                     <img src="assets/images/article-4-image.webp" alt="Sustainable Innovation" loading="lazy">
                                 </a>
                                 <div class="articles__body">
                                     <h2 class="articles__headline">Sustainable Innovation: How Industry Is Balancing Growth with Responsibility</h2>
                                     <p class="articles__excerpt">Leading industrial organisations are discovering that sustainability and performance are not in conflict — they are increasingly inseparable, with green operations delivering both efficiency gains and long-term resilience.</p>
-                                    <a href="news-detail.html" class="articles__readmore" aria-label="Read sustainable innovation article">
+                                    <a href="news-detail.php" class="articles__readmore" aria-label="Read sustainable innovation article">
                                         <span>Read More</span>
                                         <span class="btn__icon" aria-hidden="true">
                                             <svg class="btn__arrow btn__arrow--a" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -294,44 +235,9 @@
                             </button>
                         </div>
 
-                        <footer class="footer articles-page__footer">
-                            <div class="footer__line"></div>
-                            <a href="index.html" class="footer__brand" aria-label="BRIDGE home">
-                                <img src="assets/images/logo_bridge.svg" alt="BRIDGE">
-                            </a>
-
-                            <nav class="footer__nav" aria-label="Footer navigation">
-                                <a href="index.html">Home</a>
-                                <a href="about-us.html">About Us</a>
-                                <a href="our-services.html">Our Services</a>
-                                <a href="ecosystem.html">Our Ecosystem</a>
-                                <a href="news.html">News</a>
-                                <a href="articles.html">Articles</a>
-                                <a href="contact-us.html">Contact Us</a>
-                            </nav>
-
-                            <div class="footer__legal">
-                                <span>Copyright © 2026 EDGE Group PJSC</span>
-                                <span class="footer__dot"></span>
-                                <a href="contact-us.html">Privacy Policy</a>
-                            </div>
-                        </footer>
-
                     </div>
                 </div>
             </div>
         </section>
-    </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/lenis/dist/lenis.min.js"></script>
-    <script src="https://unpkg.com/split-type"></script>
-    <script src="assets/js/main.js"></script>
-
-</body>
-
-</html>
+<?php include 'inc/footer.php'; ?>
