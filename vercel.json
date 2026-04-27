@@ -3,9 +3,14 @@
     {
       "src": "*.php",
       "use": "vercel-php@0.7.2"
+    },
+    {
+      "src": "assets/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
     { "src": "/", "dest": "/index.php" },
     { "src": "/about-us", "dest": "/about-us.php" },
     { "src": "/our-services", "dest": "/our-services.php" },
@@ -14,6 +19,7 @@
     { "src": "/news-detail", "dest": "/news-detail.php" },
     { "src": "/articles", "dest": "/articles.php" },
     { "src": "/contact-us", "dest": "/contact-us.php" },
+    { "src": "/(.*)\\.php$", "dest": "/$1.php" },
     { "src": "/(.*)", "dest": "/$1" }
   ]
 }
