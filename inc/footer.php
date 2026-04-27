@@ -3,7 +3,7 @@
 <footer class="footer">
     <div class="footer__line"></div>
     <a href="index.php" class="footer__brand" aria-label="BRIDGE home">
-        <img src="assets/images/logo_bridge.svg" alt="BRIDGE">
+        <img src="assets/images/logo_bridge_.svg" alt="BRIDGE">
     </a>
 
     <nav class="footer__nav" aria-label="Footer navigation">
@@ -29,7 +29,7 @@
     crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
-<!-- <script src="https://unpkg.com/lenis/dist/lenis.min.js"></script> -->
+<script src="https://unpkg.com/lenis/dist/lenis.min.js"></script>
 <script src="https://unpkg.com/split-type"></script>
 <script src="assets/js/main.js?v=2"></script>
 

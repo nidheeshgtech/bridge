@@ -10,7 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/css/fonts.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <?= $extraHead ?? '' ?>
@@ -25,7 +26,7 @@
         <div class="container">
             <nav class="navbar">
                 <a href="index.php" class="navbar__logo" aria-label="BRIDGE Home">
-                    <img src="assets/images/logo_bridge.svg" alt="BRIDGE">
+                    <img src="assets/images/logo_bridge_.svg" alt="BRIDGE">
                 </a>
                 <ul class="navbar__menu">
                     <li class="navbar__item <?= ($activePage ?? '') === 'home' ? 'navbar__item--active' : '' ?>">
