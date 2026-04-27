@@ -1,0 +1,142 @@
+@use '../abstracts' as *;
+
+.people-panel {
+    padding: 0 0 50px;
+
+    @include respond-to(sm) {
+        padding-bottom: 24px;
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        padding: 32px;
+        border-radius: 20px;
+        background: $color-bg-card;
+        border: 1px solid rgba(242, 241, 237, 0.08);
+        box-shadow: 0 10px 61.2px rgba(0, 0, 0, 0.25);
+
+        @include respond-to(sm) {
+            gap: 28px;
+            padding: 20px;
+        }
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__eyebrow {
+        font-family: $font-book;
+        font-size: 18px;
+        line-height: 0.9;
+        color: $color-accent;
+        text-transform: uppercase;
+    }
+
+    &__title {
+        margin: 0;
+        font-family: $font-primary;
+        font-size: fluid(42, 72);
+        line-height: 1.1;
+        color: $color-text;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 32px;
+
+        @include respond-to(md) {
+            grid-template-columns: 1fr;
+            gap: 50px;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: 23px;
+        min-width: 0;
+
+        @include respond-to(md) {
+            position: relative;
+            padding-bottom: 28px;
+
+            &:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 1px;
+                background: rgba(255, 255, 255, 0.12);
+            }
+        }
+    }
+
+    &__media {
+        height: 498px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(0, 0, 0, 0.04) 56%, rgba(0, 0, 0, 0.82) 100%), #8a8a8a;
+
+        @include respond-to(sm) {
+            height: 360px;
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        align-items: flex-start;
+    }
+
+    &__name {
+        margin: 0;
+        font-family: $font-book;
+        font-size: 40px;
+        line-height: 1.05;
+        color: $color-accent;
+        text-transform: capitalize;
+
+        @include respond-to(sm) {
+            font-size: 30px;
+        }
+    }
+
+    &__role {
+        margin: 0;
+        font-family: $font-primary;
+        font-size: 20px;
+        line-height: 1.2;
+        color: #fff;
+
+        @include respond-to(sm) {
+            font-size: 17px;
+        }
+    }
+
+    &__bio {
+        margin: 0;
+        font-family: $font-book;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #fff;
+
+        @include respond-to(lg) {
+            font-size: 18px;
+        }
+
+        @include respond-to(sm) {
+            font-size: 16px;
+        }
+    }
+
+    &__button {
+        padding: 14px 24px;
+        font-size: 16px;
+    }
+}

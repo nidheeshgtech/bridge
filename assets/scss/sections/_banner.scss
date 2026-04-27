@@ -149,4 +149,15 @@
             }
         }
     }
+
+    &__intro {
+        font-family: $font-primary;
+        color: $color-text;
+        opacity: 1;
+        margin-bottom: 28px;
+
+        @include respond-to(sm) {
+            margin-bottom: 20px;
+        }
+    }
 }

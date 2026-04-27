@@ -275,6 +275,236 @@ if (revealEls.length) {
     });
 })();
 
+// ── Services page tabs (.services-page) ────────────────────
+(function () {
+    const navItems = document.querySelectorAll('.services-page__nav-item[data-service-target]');
+    const panels = document.querySelectorAll('.services-page__content[data-service-panel]');
+    const mobileSelect = document.querySelector('.services-page__mobile-select');
+
+    if (!navItems.length || !panels.length) return;
+
+    const setActiveService = targetId => {
+        navItems.forEach(item => {
+            const isActive = item.dataset.serviceTarget === targetId;
+            item.classList.toggle('services-page__nav-item--active', isActive);
+            item.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+
+        panels.forEach(panel => {
+            const isActive = panel.dataset.servicePanel === targetId;
+            panel.hidden = !isActive;
+            panel.classList.toggle('services-page__content--active', isActive);
+        });
+
+        if (mobileSelect && mobileSelect.value !== targetId) {
+            mobileSelect.value = targetId;
+        }
+    };
+
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            setActiveService(item.dataset.serviceTarget);
+        });
+    });
+
+    if (mobileSelect) {
+        mobileSelect.addEventListener('change', event => {
+            setActiveService(event.target.value);
+        });
+    }
+})();
+
+// ── News page filters & pagination (.news-page) ────────────
+(function () {
+    const newsPages = Array.from(document.querySelectorAll('[data-news-page]'));
+
+    if (!newsPages.length) return;
+
+    newsPages.forEach(page => {
+        const tabs = Array.from(page.querySelectorAll('[data-news-filter]'));
+        const select = page.querySelector('.news-page__select');
+        const list = page.querySelector('[data-news-list]');
+        const entries = Array.from(page.querySelectorAll('[data-news-entry]'));
+        const prevButton = page.querySelector('[data-news-prev]');
+        const nextButton = page.querySelector('[data-news-next]');
+        const pageList = page.querySelector('[data-news-page-list]');
+        const perPage = 2;
+        let activeCategory = 'all';
+        let currentPage = 1;
+
+        if (!list || !entries.length || !pageList) return;
+
+        const getFilteredEntries = () => {
+            if (activeCategory === 'all') return entries;
+
+            return entries.filter(entry => {
+                const categories = (entry.dataset.newsCategories || '')
+                    .split(',')
+                    .map(value => value.trim())
+                    .filter(Boolean);
+
+                return categories.includes(activeCategory);
+            });
+        };
+
+        const updateFilterControls = () => {
+            tabs.forEach(tab => {
+                const isActive = tab.dataset.newsFilter === activeCategory;
+                tab.classList.toggle('news-page__tab--active', isActive);
+                tab.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            });
+
+            if (select && select.value !== activeCategory) {
+                select.value = activeCategory;
+            }
+        };
+
+        const buildPagination = totalPages => {
+            pageList.innerHTML = '';
+
+            for (let pageNumber = 1; pageNumber <= totalPages; pageNumber += 1) {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'news-page__page-button';
+                button.textContent = String(pageNumber);
+                button.dataset.newsPage = String(pageNumber);
+
+                if (pageNumber === currentPage) {
+                    button.classList.add('news-page__page-button--active');
+                    button.setAttribute('aria-current', 'page');
+                }
+
+                button.addEventListener('click', () => {
+                    if (currentPage === pageNumber) return;
+                    currentPage = pageNumber;
+                    render(true);
+                });
+
+                pageList.appendChild(button);
+            }
+
+            if (prevButton) prevButton.disabled = currentPage === 1;
+            if (nextButton) nextButton.disabled = currentPage === totalPages;
+        };
+
+        const animateVisibleEntries = visibleEntries => {
+            if (!window.gsap || prefersReducedMotion || !visibleEntries.length) return;
+
+            gsap.fromTo(visibleEntries,
+                {
+                    autoAlpha: 0,
+                    y: 28
+                },
+                {
+                    autoAlpha: 1,
+                    y: 0,
+                    duration: 0.55,
+                    stagger: 0.08,
+                    ease: 'power2.out',
+                    clearProps: 'opacity,visibility,transform'
+                }
+            );
+        };
+
+        const render = animate => {
+            const filteredEntries = getFilteredEntries();
+            const totalPages = Math.max(1, Math.ceil(filteredEntries.length / perPage));
+
+            if (currentPage > totalPages) {
+                currentPage = totalPages;
+            }
+
+            const start = (currentPage - 1) * perPage;
+            const visibleEntries = filteredEntries.slice(start, start + perPage);
+
+            entries.forEach(entry => {
+                entry.hidden = !visibleEntries.includes(entry);
+            });
+
+            updateFilterControls();
+            buildPagination(totalPages);
+
+            if (animate) {
+                animateVisibleEntries(visibleEntries);
+            }
+        };
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const nextCategory = tab.dataset.newsFilter || 'all';
+                if (nextCategory === activeCategory) return;
+
+                activeCategory = nextCategory;
+                currentPage = 1;
+                render(true);
+            });
+        });
+
+        if (select) {
+            select.addEventListener('change', event => {
+                activeCategory = event.target.value || 'all';
+                currentPage = 1;
+                render(true);
+            });
+        }
+
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                if (currentPage === 1) return;
+                currentPage -= 1;
+                render(true);
+            });
+        }
+
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                const totalPages = Math.max(1, Math.ceil(getFilteredEntries().length / perPage));
+                if (currentPage >= totalPages) return;
+                currentPage += 1;
+                render(true);
+            });
+        }
+
+        render(false);
+    });
+})();
+
+// ── Case study modal (.case-study-modal) ──────────────────
+(function () {
+    const modal = document.querySelector('[data-case-study-modal]');
+    const openTriggers = document.querySelectorAll('[data-case-study-open]');
+    const closeTriggers = document.querySelectorAll('[data-case-study-close]');
+
+    if (!modal || !openTriggers.length) return;
+
+    const openModal = () => {
+        modal.hidden = false;
+        document.body.classList.add('modal-open');
+    };
+
+    const closeModal = () => {
+        modal.hidden = true;
+        document.body.classList.remove('modal-open');
+    };
+
+    openTriggers.forEach(trigger => {
+        trigger.addEventListener('click', event => {
+            event.preventDefault();
+            openModal();
+        });
+    });
+
+    closeTriggers.forEach(trigger => {
+        trigger.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && !modal.hidden) {
+            closeModal();
+        }
+    });
+})();
+
 // ── Services cards (.services) ─────────────────────────────
 (function () {
     const stack = document.getElementById('servicesStack');
@@ -351,16 +581,16 @@ if (revealEls.length) {
 
 // ── Ecosystem marquee (.ecosystem) ─────────────────────────
 (function () {
-    const track = document.querySelector('[data-ecosystem-track]');
+    const tracks = Array.from(document.querySelectorAll('[data-ecosystem-track]'));
 
-    if (!track || !window.gsap || prefersReducedMotion) return;
+    if (!tracks.length || !window.gsap || prefersReducedMotion) return;
 
-    const groups = track.querySelectorAll('.ecosystem__group');
-    if (groups.length < 2) return;
+    const buildMarquee = track => {
+        const groups = track.querySelectorAll('.ecosystem__group');
+        if (groups.length < 2) return;
 
-    const firstGroup = groups[0];
+        const firstGroup = groups[0];
 
-    const buildMarquee = () => {
         gsap.killTweensOf(track);
         gsap.set(track, { x: 0 });
 
@@ -375,8 +605,12 @@ if (revealEls.length) {
         });
     };
 
-    buildMarquee();
-    window.addEventListener('resize', buildMarquee);
+    const rebuildAll = () => {
+        tracks.forEach(buildMarquee);
+    };
+
+    rebuildAll();
+    window.addEventListener('resize', rebuildAll);
 })();
 
 // ── Latest news (.news) ────────────────────────────────────

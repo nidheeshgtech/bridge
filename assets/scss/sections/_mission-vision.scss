@@ -1,0 +1,75 @@
+@use '../abstracts' as *;
+
+.mission-vision {
+    padding: 0 0 50px;
+
+    @include respond-to(sm) {
+        padding-bottom: 24px;
+    }
+
+    &__card {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
+        gap: 24px;
+        align-items: start;
+        padding: 32px;
+        border-radius: 20px;
+        background: $color-bg-card;
+        border: 1px solid rgba(242, 241, 237, 0.08);
+        box-shadow: 0 10px 34px 22px rgba(0, 0, 0, 0.25);
+
+        @include respond-to(md) {
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 24px;
+        }
+
+        @include respond-to(sm) {
+            padding: 20px;
+        }
+    }
+
+    &__block {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        min-width: 0;
+    }
+
+    &__divider {
+        width: 1px;
+        min-height: 220px;
+        background: #343232;
+        align-self: stretch;
+
+        @include respond-to(md) {
+            display: block;
+            width: 100%;
+            min-height: 1px;
+            height: 1px;
+        }
+    }
+
+    &__title {
+        margin: 0;
+        font-family: $font-primary;
+        font-size: fluid(44, 72);
+        line-height: 0.9;
+        color: $color-accent;
+        text-transform: uppercase;
+    }
+
+    &__copy {
+        margin: 0;
+        max-width: 100%;
+        font-family: $font-book;
+        font-size: $fs-body;
+        line-height: 1.5;
+        color: $color-text;
+        opacity: 0.9;
+
+        @include respond-to(sm) {
+            font-size: 16px;
+        }
+    }
+}
