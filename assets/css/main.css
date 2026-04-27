@@ -4075,7 +4075,6 @@ p {
 .contact__form-border {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #c78d1d 0%, #fe5620 100%);
 }
 
 .contact__form-panel {
@@ -4205,7 +4204,6 @@ p {
 
 .contact-page {
   background: #141414;
-  min-height: 100vh;
 }
 .contact-page__section {
   padding-top: 0;

@@ -74,7 +74,7 @@ if (hamburger) {
         if (lenisInstance) lenisInstance.start();
     };
 
-    searchBtns.forEach(btn => btn.addEventListener('click', openSearch));
+    // searchBtns.forEach(btn => btn.addEventListener('click', openSearch));
     closeBtn.addEventListener('click', closeSearch);
 
     // Click backdrop to close
@@ -781,48 +781,44 @@ if (revealEls.length) {
 
     gsap.registerPlugin(ScrollTrigger);
 
-    const fromOpacity = [1, 0.5, 0.2, 0.1];
-    const fromTextOp = [1, 0.45, 0.18, 0.08];
-    const fromY = [0, 32, 64, 96];
+    // All cards share the same start state — skewed from the right-bottom corner
+    gsap.set(cards, {
+        transformOrigin: 'left top',
+        // skewX: "-20deg",
+        // skewY: "-12deg",
+        autoAlpha: 0,
+        y: "-200",
+        force3D: true
+    });
 
-    // Set initial skew state before observer fires
-    gsap.set(cards, { skewX: 8, skewY: 3, transformOrigin: 'right bottom' });
+    ScrollTrigger.create({
+        trigger: stack,
+        start: 'top 76%',
+        once: true,
+        onEnter() {
+            // Single GSAP stagger call — no delay juggling, no clearProps snap
+            gsap.to(cards, {
+                skewX: 0,
+                skewY: 0,
+                autoAlpha: 1,
+                y: 0,
+                duration: 1.6,
+                stagger: 0.18,
+                ease: 'expo.out',
+                force3D: true
+            });
 
-    // Observe each card individually — fires when THAT card enters the viewport
-    const cardObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-
-            const card = entry.target;
-            const index = cards.indexOf(card);
-            const indexEl = card.querySelector('.services__index');
-            const nameEl = card.querySelector('.services__name');
-            const arrowEl = card.querySelector('.services__arrow');
-            const shim = document.getElementById(`servicesShim${index}`);
-            const staggerDelay = index * 0.12;
-
-            cardObserver.unobserve(card);
-
-            gsap.fromTo(card,
-                { opacity: fromOpacity[index], y: fromY[index], skewX: 8, skewY: 3 },
-                { opacity: 1, y: 0, skewX: 0, skewY: 0, duration: 1.8, delay: staggerDelay, ease: 'power3.out', clearProps: 'transform', immediateRender: false }
-            );
-
-            gsap.fromTo([indexEl, nameEl, arrowEl],
-                { opacity: fromTextOp[index] },
-                { opacity: 1, duration: 1.5, delay: 0.1 + staggerDelay, ease: 'power2.out', immediateRender: false }
-            );
-
-            if (shim) {
+            // Shim sweep per card, offset by stagger
+            cards.forEach((card, index) => {
+                const shim = document.getElementById(`servicesShim${index}`);
+                if (!shim) return;
                 gsap.fromTo(shim,
                     { x: '-150%', opacity: 0.35 },
-                    { x: '220%', opacity: 0.65, duration: 1.2, delay: 0.15 + staggerDelay, ease: 'power2.out', immediateRender: false }
+                    { x: '220%', opacity: 0.65, duration: 1.2, delay: index * 0.18 + 0.12, ease: 'power2.out' }
                 );
-            }
-        });
-    }, { threshold: 0.25 });
-
-    cards.forEach(card => cardObserver.observe(card));
+            });
+        }
+    });
 })();
 
 // ── Ecosystem marquee (.ecosystem) ─────────────────────────
