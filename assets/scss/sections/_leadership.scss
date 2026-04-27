@@ -119,6 +119,7 @@
         font-size: fluid(30, 40);
         line-height: 1.1;
         color: $color-accent;
+        text-transform: capitalize;
     }
 
     &__role {

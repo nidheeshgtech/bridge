@@ -24,8 +24,8 @@
 
     &__content {
         display: grid;
-        grid-template-columns: 1fr 1px fluid(320, 532) 1px fluid(280, 461);
-        align-items: center;
+        grid-template-columns: 30% 1px 40% 1px 1fr;
+        align-items: flex-start;
         gap: 20px;
         min-height: 610px;
 
@@ -93,7 +93,7 @@
     &__image {
         border-radius: $radius-card;
         overflow: hidden;
-        height: 580px;
+        height: 100%;
 
         img {
             width: 100%;
