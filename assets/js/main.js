@@ -426,6 +426,13 @@ if (revealEls.length) {
     allTriggers.forEach(btn => {
         btn.addEventListener('click', () => switchTo(btn.dataset.serviceTarget));
     });
+
+    // Deep-link: our-services.php#service-03 opens that tab on load
+    const hash = location.hash.slice(1);
+    if (hash && panels.find(p => p.dataset.servicePanel === hash)) {
+        switchTo(hash);
+        setTimeout(() => page.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+    }
 })();
 
 // ── News page filters & pagination (.news-page) ────────────
@@ -818,6 +825,23 @@ if (revealEls.length) {
                 );
             });
         }
+    });
+})();
+
+// ── Services card → our-services.php deep link ──────────────
+(function () {
+    const cards = document.querySelectorAll('[data-service-card]');
+    if (!cards.length) return;
+
+    const map = ['service-01', 'service-02', 'service-03', 'service-04'];
+
+    cards.forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => {
+            const index = parseInt(card.dataset.serviceIndex, 10);
+            const target = map[index];
+            if (target) location.href = 'our-services.php#' + target;
+        });
     });
 })();
 
