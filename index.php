@@ -1,8 +1,8 @@
 <?php
 $pageTitle = 'BRIDGE — Innovate. Transform. Elevate.';
 $activePage = 'home';
-$extraHead = '<link rel="stylesheet" href="https://github.hubspot.com/odometer/themes/odometer-theme-default.css">';
-$extraScripts = '<script src="https://github.hubspot.com/odometer/odometer.js"></script>';
+$extraHead = '<link rel="stylesheet" href="assets/css/vendor/odometer-theme-default.css">';
+$extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
 ?>
 <?php include 'inc/header.php'; ?>
 
@@ -297,7 +297,7 @@ $extraScripts = '<script src="https://github.hubspot.com/odometer/odometer.js"><
                             <span class="btn__icon" aria-hidden="true">
                                 <svg class="btn__arrow btn__arrow--a" width="13" height="13" viewBox="0 0 13 13"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M2 11L11 2M11 2H5M11 2V8" stroke="white" stroke-width="1.6"
+                                    <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#FE5620" stroke-width="1.6"
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                                 <svg class="btn__arrow btn__arrow--b" width="13" height="13" viewBox="0 0 13 13"
@@ -326,7 +326,7 @@ $extraScripts = '<script src="https://github.hubspot.com/odometer/odometer.js"><
                                         <span class="btn__icon" aria-hidden="true">
                                             <svg class="btn__arrow btn__arrow--a" width="13" height="13"
                                                 viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M2 11L11 2M11 2H5M11 2V8" stroke="white" stroke-width="1.6"
+                                                <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#FE5620" stroke-width="1.6"
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                             <svg class="btn__arrow btn__arrow--b" width="13" height="13"
@@ -367,7 +367,7 @@ $extraScripts = '<script src="https://github.hubspot.com/odometer/odometer.js"><
                                         <span class="btn__icon" aria-hidden="true">
                                             <svg class="btn__arrow btn__arrow--a" width="13" height="13"
                                                 viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M2 11L11 2M11 2H5M11 2V8" stroke="white" stroke-width="1.6"
+                                                <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#FE5620" stroke-width="1.6"
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                             <svg class="btn__arrow btn__arrow--b" width="13" height="13"
@@ -408,7 +408,7 @@ $extraScripts = '<script src="https://github.hubspot.com/odometer/odometer.js"><
                                         <span class="btn__icon" aria-hidden="true">
                                             <svg class="btn__arrow btn__arrow--a" width="13" height="13"
                                                 viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M2 11L11 2M11 2H5M11 2V8" stroke="white" stroke-width="1.6"
+                                                <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#FE5620" stroke-width="1.6"
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                             <svg class="btn__arrow btn__arrow--b" width="13" height="13"
@@ -449,7 +449,7 @@ $extraScripts = '<script src="https://github.hubspot.com/odometer/odometer.js"><
                                         <span class="btn__icon" aria-hidden="true">
                                             <svg class="btn__arrow btn__arrow--a" width="13" height="13"
                                                 viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M2 11L11 2M11 2H5M11 2V8" stroke="white" stroke-width="1.6"
+                                                <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#FE5620" stroke-width="1.6"
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                             <svg class="btn__arrow btn__arrow--b" width="13" height="13"
@@ -493,7 +493,7 @@ $extraScripts = '<script src="https://github.hubspot.com/odometer/odometer.js"><
                             <span class="btn__icon" aria-hidden="true">
                                 <svg class="btn__arrow btn__arrow--a" width="13" height="13" viewBox="0 0 13 13"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M2 11L11 2M11 2H5M11 2V8" stroke="white" stroke-width="1.6"
+                                    <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#FE5620" stroke-width="1.6"
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                                 <svg class="btn__arrow btn__arrow--b" width="13" height="13" viewBox="0 0 13 13"
@@ -524,7 +524,7 @@ $extraScripts = '<script src="https://github.hubspot.com/odometer/odometer.js"><
                                     <span class="btn__icon" aria-hidden="true">
                                         <svg class="btn__arrow btn__arrow--a" width="13" height="13" viewBox="0 0 13 13"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M2 11L11 2M11 2H5M11 2V8" stroke="white" stroke-width="1.6"
+                                            <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#FE5620" stroke-width="1.6"
                                                 stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         <svg class="btn__arrow btn__arrow--b" width="13" height="13" viewBox="0 0 13 13"
@@ -555,7 +555,7 @@ $extraScripts = '<script src="https://github.hubspot.com/odometer/odometer.js"><
                                     <span class="btn__icon" aria-hidden="true">
                                         <svg class="btn__arrow btn__arrow--a" width="13" height="13" viewBox="0 0 13 13"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M2 11L11 2M11 2H5M11 2V8" stroke="white" stroke-width="1.6"
+                                            <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#FE5620" stroke-width="1.6"
                                                 stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         <svg class="btn__arrow btn__arrow--b" width="13" height="13" viewBox="0 0 13 13"
@@ -586,7 +586,7 @@ $extraScripts = '<script src="https://github.hubspot.com/odometer/odometer.js"><
                                     <span class="btn__icon" aria-hidden="true">
                                         <svg class="btn__arrow btn__arrow--a" width="13" height="13" viewBox="0 0 13 13"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M2 11L11 2M11 2H5M11 2V8" stroke="white" stroke-width="1.6"
+                                            <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#FE5620" stroke-width="1.6"
                                                 stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         <svg class="btn__arrow btn__arrow--b" width="13" height="13" viewBox="0 0 13 13"
@@ -617,7 +617,7 @@ $extraScripts = '<script src="https://github.hubspot.com/odometer/odometer.js"><
                                     <span class="btn__icon" aria-hidden="true">
                                         <svg class="btn__arrow btn__arrow--a" width="13" height="13" viewBox="0 0 13 13"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M2 11L11 2M11 2H5M11 2V8" stroke="white" stroke-width="1.6"
+                                            <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#FE5620" stroke-width="1.6"
                                                 stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         <svg class="btn__arrow btn__arrow--b" width="13" height="13" viewBox="0 0 13 13"
@@ -735,9 +735,8 @@ $extraScripts = '<script src="https://github.hubspot.com/odometer/odometer.js"><
                                                 </svg>
                                                 <svg class="btn__arrow btn__arrow--b" width="13" height="13"
                                                     viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#FE5620"
-                                                        stroke-width="1.6" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
+                                                    <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#fff" stroke-width="1.6"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
                                                 </svg>
                                             </span>
                                         </a>
@@ -757,9 +756,8 @@ $extraScripts = '<script src="https://github.hubspot.com/odometer/odometer.js"><
                                                 </svg>
                                                 <svg class="btn__arrow btn__arrow--b" width="13" height="13"
                                                     viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#FE5620"
-                                                        stroke-width="1.6" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
+                                                    <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#fff" stroke-width="1.6"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
                                                 </svg>
                                             </span>
                                         </a>
@@ -779,9 +777,8 @@ $extraScripts = '<script src="https://github.hubspot.com/odometer/odometer.js"><
                                                 </svg>
                                                 <svg class="btn__arrow btn__arrow--b" width="13" height="13"
                                                     viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#FE5620"
-                                                        stroke-width="1.6" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
+                                                    <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#fff" stroke-width="1.6"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
                                                 </svg>
                                             </span>
                                         </a>
