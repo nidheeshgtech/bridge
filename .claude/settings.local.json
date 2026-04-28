@@ -9,7 +9,10 @@
       "Bash(curl -sL \"https://github.hubspot.com/odometer/themes/odometer-theme-default.css\" -o /Applications/MAMP/htdocs/bridge/assets/css/vendor/odometer-theme-default.css)",
       "Bash(curl -sL \"https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css\" -o /Applications/MAMP/htdocs/bridge/assets/css/vendor/bootstrap.min.css)",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(vercel *)",
+      "Bash(sort -k6,7)"
     ]
   }
 }

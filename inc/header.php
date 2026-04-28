@@ -43,9 +43,9 @@
                     <li class="navbar__item <?= ($activePage ?? '') === 'news' ? 'navbar__item--active' : '' ?>">
                         <a href="news.php" class="navbar__link">News</a>
                     </li>
-                    <li class="navbar__item <?= ($activePage ?? '') === 'articles' ? 'navbar__item--active' : '' ?>">
+                    <!-- <li class="navbar__item <?= ($activePage ?? '') === 'articles' ? 'navbar__item--active' : '' ?>">
                         <a href="articles.php" class="navbar__link">Articles</a>
-                    </li>
+                    </li> -->
                     <li class="navbar__item <?= ($activePage ?? '') === 'contact' ? 'navbar__item--active' : '' ?>">
                         <a href="contact-us.php" class="navbar__link">Contact Us</a>
                     </li>

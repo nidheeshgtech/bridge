@@ -69,8 +69,8 @@ $activePage = 'contact';
 
                                     <article class="contact__detail">
                                         <h3 class="contact__detail-title">Email</h3>
-                                        <p class="contact__detail-copy">LIF@edgegroup.ae</p>
-                                        <a class="contact__detail-link" href="mailto:LIF@edgegroup.ae">
+                                        <p class="contact__detail-copy">BRIDGE@edgegroup.ae</p>
+                                        <a class="contact__detail-link" href="mailto:BRIDGE@edgegroup.ae">
                                             <span>Send An Email</span>
                                             <span class="btn__icon" aria-hidden="true">
                                                 <svg class="btn__arrow btn__arrow--a" width="13" height="13"

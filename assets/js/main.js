@@ -237,6 +237,44 @@ if (revealEls.length) {
     }
 }
 
+// ── Hero entrance animation ──────────────────────────────────
+(function () {
+    if (!window.gsap || prefersReducedMotion) return;
+
+    const titleSpans = document.querySelectorAll('[data-hero-span]');
+    const sub = document.querySelector('[data-hero-sub]');
+    const btn = document.querySelector('[data-hero-btn]');
+
+    if (!titleSpans.length) return;
+
+    gsap.set(titleSpans, {
+        autoAlpha: 0, x: -80, skewX: -18,
+        transformOrigin: 'left center', force3D: true
+    });
+    gsap.set([sub, btn].filter(Boolean), { autoAlpha: 0, y: 24, force3D: true });
+
+    const tl = gsap.timeline({ delay: 0.25 });
+
+    tl.to(titleSpans, {
+        autoAlpha: 1, x: 0, skewX: 0,
+        duration: 1.0, stagger: 0.18, ease: 'expo.out', force3D: true
+    });
+
+    if (sub) {
+        tl.to(sub, {
+            autoAlpha: 1, y: 0,
+            duration: 1.0, ease: 'power3.out', force3D: true
+        }, '-=0.55');
+    }
+
+    if (btn) {
+        tl.to(btn, {
+            autoAlpha: 1, y: 0,
+            duration: 0.9, ease: 'power3.out', force3D: true
+        }, '-=0.65');
+    }
+})();
+
 // ── Title animation (.title-animation) ─────────────────────
 (function () {
     function initTitleAnimation() {

@@ -19,13 +19,13 @@ $extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
         <div class="hero__overlay" aria-hidden="true"></div>
         <div class="hero__content">
             <h1 class="hero__title">
-                <span class="revealmetop" style="--reveal-delay: 0.1s">INNOVATE<span class="hero__dot">.</span></span>
-                <span class="revealmetop" style="--reveal-delay: 0.22s">TRANSFORM<span class="hero__dot">.</span></span>
-                <span class="revealmetop" style="--reveal-delay: 0.34s">ELEVATE<span class="hero__dot">.</span></span>
+                <span data-hero-span>INNOVATE<span class="hero__dot">.</span></span>
+                <span data-hero-span>TRANSFORM<span class="hero__dot">.</span></span>
+                <span data-hero-span>ELEVATE<span class="hero__dot">.</span></span>
             </h1>
-            <p class="hero__sub revealmetop" style="--reveal-delay: 0.5s">Empowering people, unleashing possibility
+            <p class="hero__sub" data-hero-sub>Empowering people, unleashing possibility
             </p>
-            <a href="#about" class="btn btn--hero revealmetop" style="--reveal-delay: 0.62s">
+            <a href="#about" class="btn btn--hero" data-hero-btn>
                 Learn More
                 <span class="btn__icon" aria-hidden="true">
                     <svg class="btn__arrow btn__arrow--a" width="13" height="13" viewBox="0 0 13 13" fill="none"
@@ -318,7 +318,7 @@ $extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
 
                             <div class="news__grid">
                                 <div class="news__lead">
-                                    <h3 class="news__headline title-animation">BRIEDGE LIF EXPANDS SMART FACTORY
+                                    <h3 class="news__headline title-animation">BRIDGE EXPANDS SMART FACTORY
                                         SOLUTIONS IN
                                         COLLABORATION WITH GLOBAL TECH LEADERS</h3>
                                     <a class="news__readmore btn" href="#news">
@@ -346,7 +346,7 @@ $extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
                                 </div>
 
                                 <a class="news__media" href="#news"
-                                    aria-label="Read BRIEDGE LIF expands smart factory solutions article">
+                                    aria-label="Read BRIDGE expands smart factory solutions article">
                                     <img src="assets/images/ls01.webp" alt="Abstract dark geometric texture">
                                 </a>
                             </div>
@@ -380,7 +380,7 @@ $extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
                                 </div>
 
                                 <div class="news__copy title-animation">
-                                    <p>With over 2,356+ training sessions completed, LIF continues to upskill
+                                    <p>With over 2,356+ training sessions completed, BRIDGE continues to upskill
                                         professionals across various industries. Our latest programs focus on smart
                                         manufacturing, digital transformation, and industrial AI, ensuring
                                         businesses stay ahead of the curve.</p>
@@ -402,7 +402,7 @@ $extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
                                 <div class="news__lead">
                                     <h3 class="news__headline title-animation">STRENGTHENING OUR ECOSYSTEM - NEW
                                         KNOWLEDGE &amp;
-                                        STRATEGIC PARTNERS JOIN LIF</h3>
+                                        STRATEGIC PARTNERS JOIN BRIDGE</h3>
                                     <a class="news__readmore btn" href="#news">
                                         <span>Read More</span>
                                         <span class="btn__icon" aria-hidden="true">
@@ -462,7 +462,7 @@ $extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
                                 </div>
 
                                 <div class="news__copy title-animation">
-                                    <p>LIF has joined forces with top industrial leaders to launch large-scale
+                                    <p>BRIDGE has joined forces with top industrial leaders to launch large-scale
                                         transformation projects, integrating IoT, AI, and smart automation into
                                         traditional manufacturing processes. This initiative will boost productivity
                                         and efficiency while ensuring sustainable growth.</p>
@@ -482,7 +482,7 @@ $extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
     <!-- ============================================================
              ARTICLES
         ============================================================ -->
-    <section class="articles" id="articles">
+    <!-- <section class="articles" id="articles">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -633,7 +633,7 @@ $extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- ============================================================
              AWARDS
@@ -765,8 +765,8 @@ $extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
 
                                     <article class="contact__detail">
                                         <h3 class="contact__detail-title">Email</h3>
-                                        <p class="contact__detail-copy">LIF@edgegroup.ae</p>
-                                        <a class="contact__detail-link" href="mailto:LIF@edgegroup.ae">
+                                        <p class="contact__detail-copy">BRIDGE@edgegroup.ae</p>
+                                        <a class="contact__detail-link" href="mailto:BRIDGE@edgegroup.ae">
                                             <span>Send An Email</span>
                                             <span class="btn__icon" aria-hidden="true">
                                                 <svg class="btn__arrow btn__arrow--a" width="13" height="13"

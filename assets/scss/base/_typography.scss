@@ -19,6 +19,10 @@ h1 {
     letter-spacing: $ls-heading;
     text-transform: uppercase;
     color: $color-text;
+
+    @include respond-to(xs) {
+        font-size: 42px;
+    }
 }
 
 h2 {

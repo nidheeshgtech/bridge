@@ -167,7 +167,7 @@
     line-height: $lh-tight;
     white-space: nowrap;
 
-    // Desktop hover — colour + lift
+    // Desktop hover — colour + bridget
     @media (hover: hover) and (pointer: fine) {
         transition:
             color 0.25s ease,
@@ -213,7 +213,7 @@
     position: absolute;
     bottom: -29px;
     left: 0;
-    width: 50px;
+    width: 100%;
     height: 2px;
     background: $color-accent;
 
