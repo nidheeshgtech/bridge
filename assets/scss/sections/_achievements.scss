@@ -95,14 +95,26 @@
         white-space: nowrap;
         margin-top: auto;
 
-        &--plus::before {
-            content: '+';
+        &--plus::before,
+        &--gt::before {
             display: inline-block;
             font-size: inherit;
             line-height: inherit;
             color: inherit;
             position: relative;
             top: -30px;
+
+            @include respond-to(sm) {
+                top: -15px;
+            }
+        }
+
+        &--plus::before {
+            content: '+';
+        }
+
+        &--gt::before {
+            content: '>';
         }
     }
 

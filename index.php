@@ -101,20 +101,20 @@ $extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
                         <article class="achievements__card revealmetop">
                             <h3 class="achievements__label title-animation">Programs launched</h3>
                             <div class="achievements__value achievements__value--plus">
-                                <span class="odometer achievements__odometer" data-target="57" data-format="d">0</span>
+                                <span class="odometer achievements__odometer" data-target="72" data-format="d">0</span>
                             </div>
                         </article>
 
                         <article class="achievements__card revealmetop">
                             <h3 class="achievements__label title-animation">Interactive simulations and games</h3>
-                            <div class="achievements__value">
+                            <div class="achievements__value achievements__value--plus">
                                 <span class="odometer achievements__odometer" data-target="25" data-format="d">0</span>
                             </div>
                         </article>
 
                         <article class="achievements__card revealmetop">
                             <h3 class="achievements__label title-animation">Global certifications</h3>
-                            <div class="achievements__value">
+                            <div class="achievements__value ">
                                 <span class="odometer achievements__odometer" data-target="7" data-format="d">0</span>
                             </div>
                         </article>
@@ -123,7 +123,7 @@ $extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
                     <div class="achievements__grid achievements__grid--two">
                         <article class="achievements__card revealmetop">
                             <h3 class="achievements__label title-animation">Trainee days</h3>
-                            <div class="achievements__value">
+                            <div class="achievements__value achievements__value--plus">
                                 <span class="odometer achievements__odometer" data-target="22098"
                                     data-format="(,ddd)">0</span>
                             </div>
@@ -132,7 +132,7 @@ $extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
                         <article class="achievements__card revealmetop">
                             <h3 class="achievements__label title-animation">NPS participation, advocacy, and
                                 satisfaction</h3>
-                            <div class="achievements__value achievements__value--suffix">
+                            <div class="achievements__value achievements__value--suffix achievements__value--gt">
                                 <span class="odometer achievements__odometer" data-target="95" data-format="d">0</span>
                                 <span class="achievements__suffix">%</span>
                             </div>
@@ -720,8 +720,9 @@ $extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
                                 <div class="contact__details">
                                     <article class="contact__detail">
                                         <h3 class="contact__detail-title">Address</h3>
-                                        <p class="contact__detail-copy">Head Office, Rabdan - Al Maqta<br>Abu Dhabi,
-                                            UAE</p>
+                                        <p class="contact__detail-copy">Al Rubban Street, Al Bahyah P.O. Box 43221,
+                                            <br>Abu Dhabi, UAE
+                                        </p>
                                         <a class="contact__detail-link"
                                             href="https://maps.google.com/?q=Rabdan+Al+Maqta+Abu+Dhabi+UAE"
                                             target="_blank" rel="noreferrer">

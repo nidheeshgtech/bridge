@@ -247,17 +247,14 @@ if (revealEls.length) {
 
     if (!titleSpans.length) return;
 
-    gsap.set(titleSpans, {
-        autoAlpha: 0, x: -80, skewX: -18,
-        transformOrigin: 'left center', force3D: true
-    });
+    gsap.set(titleSpans, { autoAlpha: 0, y: 60, force3D: true });
     gsap.set([sub, btn].filter(Boolean), { autoAlpha: 0, y: 24, force3D: true });
 
     const tl = gsap.timeline({ delay: 0.25 });
 
     tl.to(titleSpans, {
-        autoAlpha: 1, x: 0, skewX: 0,
-        duration: 1.0, stagger: 0.18, ease: 'expo.out', force3D: true
+        autoAlpha: 1, y: 0,
+        duration: 1.1, stagger: 0.18, ease: 'power4.out', force3D: true
     });
 
     if (sub) {

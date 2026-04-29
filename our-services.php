@@ -226,6 +226,18 @@ $activePage = 'services';
                                     </ul>
                                 </div>
 
+                                <div class="services-page__capabilities revealmetop">
+                                    <h3 class="services-page__capabilities-title">Technologies</h3>
+                                    <ul class="services-page__capabilities-list">
+                                        <li>Smart IoT and connected systems solutions</li>
+                                        <li>Advanced digital twin and simulation technologies</li>
+                                        <li>AI-enabled cloud, edge, and cyber-physical systems</li>
+                                        <li>Smart manufacturing, automation, robotics, and additive technologies</li>
+                                        <li>Immersive and human-centric technologies</li>
+                                        <li>Sustainable and autonomous systems</li>
+                                    </ul>
+                                </div>
+
                             </article>
                         </div>
                     </div>
