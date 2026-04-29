@@ -24,7 +24,8 @@ $activePage = 'contact';
                                 <div class="contact__details">
                                     <article class="contact__detail">
                                         <h3 class="contact__detail-title">Address</h3>
-                                        <p class="contact__detail-copy">Head Office, Rabdan - Al Maqta<br>Abu Dhabi, UAE
+                                        <p class="contact__detail-copy">Al Rubban Street, Al Bahyah <br> P.O. Box 43221,
+                                            <br>Abu Dhabi, UAE
                                         </p>
                                         <a class="contact__detail-link"
                                             href="https://maps.google.com/?q=Rabdan+Al+Maqta+Abu+Dhabi+UAE"

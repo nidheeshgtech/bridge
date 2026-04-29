@@ -720,7 +720,7 @@ $extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
                                 <div class="contact__details">
                                     <article class="contact__detail">
                                         <h3 class="contact__detail-title">Address</h3>
-                                        <p class="contact__detail-copy">Al Rubban Street, Al Bahyah P.O. Box 43221,
+                                        <p class="contact__detail-copy">Al Rubban Street, Al Bahyah <br> P.O. Box 43221,
                                             <br>Abu Dhabi, UAE
                                         </p>
                                         <a class="contact__detail-link"
