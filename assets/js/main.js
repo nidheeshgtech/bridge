@@ -484,7 +484,7 @@ if (revealEls.length) {
         const prevButton = page.querySelector('[data-news-prev]');
         const nextButton = page.querySelector('[data-news-next]');
         const pageList = page.querySelector('[data-news-page-list]');
-        const perPage = 2;
+        const perPage = 3;
         let activeCategory = 'all';
         let currentPage = 1;
 

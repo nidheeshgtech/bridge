@@ -3,6 +3,8 @@ $pageTitle = 'BRIDGE — Innovate. Transform. Elevate.';
 $activePage = 'home';
 $extraHead = '<link rel="stylesheet" href="assets/css/vendor/odometer-theme-default.css">';
 $extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
+
+include 'inc/news-data.php';
 ?>
 <?php include 'inc/header.php'; ?>
 
@@ -18,11 +20,12 @@ $extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
         </div>
         <div class="hero__overlay" aria-hidden="true"></div>
         <div class="hero__content">
-            <h1 class="hero__title">
+            <!-- <h1 class="hero__title">
                 <span data-hero-span>INNOVATE<span class="hero__dot">.</span></span>
                 <span data-hero-span>TRANSFORM<span class="hero__dot">.</span></span>
                 <span data-hero-span>ELEVATE<span class="hero__dot">.</span></span>
-            </h1>
+            </h1> -->
+            <img src="assets/images/banner-bridge.svg" alt="Bridge" class="hero__logo" data-hero-span>
             <p class="hero__sub" data-hero-sub>Empowering people, unleashing possibility
             </p>
             <a href="#about" class="btn btn--hero" data-hero-btn>
@@ -230,7 +233,7 @@ $extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
     <!-- ============================================================
              ECOSYSTEM
         ============================================================ -->
-    <section class="ecosystem" id="ecosystem">
+    <!-- <section class="ecosystem" id="ecosystem">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -281,7 +284,7 @@ $extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- ============================================================
              LATEST NEWS
@@ -292,7 +295,7 @@ $extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
                 <div class="col-12">
                     <div class="news__header revealmetop">
                         <h2 class="news__title title-animation">Latest News</h2>
-                        <a class="news__cta btn" href="#news">
+                        <a class="news__cta btn" href="news.php">
                             <span>Explore All News</span>
                             <span class="btn__icon" aria-hidden="true">
                                 <svg class="btn__arrow btn__arrow--a" width="13" height="13" viewBox="0 0 13 13"
@@ -310,169 +313,50 @@ $extraScripts = '<script src="assets/js/vendor/odometer.js"></script>';
                     </div>
 
                     <div class="news__list">
-                        <article class="news__item" data-news-item>
-                            <div class="news__meta">
-                                <span class="news__tag">Partnerships</span>
-                                <span class="news__tag">Innovation</span>
-                            </div>
+                        <?php foreach ($news_items as $item): ?>
+                            <article class="news__item" data-news-item>
+                                <div class="news__meta">
+                                    <?php foreach ($item['tags'] as $tag): ?>
+                                        <span class="news__tag"><?= htmlspecialchars($tag) ?></span>
+                                    <?php endforeach; ?>
+                                </div>
 
-                            <div class="news__grid">
-                                <div class="news__lead">
-                                    <h3 class="news__headline title-animation">BRIDGE EXPANDS SMART FACTORY
-                                        SOLUTIONS IN
-                                        COLLABORATION WITH GLOBAL TECH LEADERS</h3>
-                                    <a class="news__readmore btn" href="#news">
-                                        <span>Read More</span>
-                                        <span class="btn__icon" aria-hidden="true">
-                                            <svg class="btn__arrow btn__arrow--a" width="13" height="13"
-                                                viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#FE5620" stroke-width="1.6"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                            <svg class="btn__arrow btn__arrow--b" width="13" height="13"
-                                                viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M2 11L11 2M11 2H5M11 2V8" stroke="white" stroke-width="1.6"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </span>
+                                <div class="news__grid">
+                                    <div class="news__lead">
+                                        <h3 class="news__headline title-animation">
+                                            <?= htmlspecialchars($item['headline']) ?>
+                                        </h3>
+                                        <a class="news__readmore btn" href="<?= htmlspecialchars($item['link']) ?>"
+                                            target="_blank" rel="noopener noreferrer">
+                                            <span>Read More</span>
+                                            <span class="btn__icon" aria-hidden="true">
+                                                <svg class="btn__arrow btn__arrow--a" width="13" height="13"
+                                                    viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#FE5620" stroke-width="1.6"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                                <svg class="btn__arrow btn__arrow--b" width="13" height="13"
+                                                    viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M2 11L11 2M11 2H5M11 2V8" stroke="white" stroke-width="1.6"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </div>
+
+                                    <div class="news__copy title-animation">
+                                        <p><?= $item['copy'] ?></p>
+                                    </div>
+
+                                    <a class="news__media" href="<?= htmlspecialchars($item['link']) ?>"
+                                        aria-label="<?= htmlspecialchars($item['aria_label']) ?>" target="_blank"
+                                        rel="noopener noreferrer">
+                                        <img src="<?= htmlspecialchars($item['image']) ?>"
+                                            alt="<?= htmlspecialchars($item['image_alt']) ?>">
                                     </a>
                                 </div>
-
-                                <div class="news__copy title-animation">
-                                    <p>We are excited to announce new strategic partnerships with leading technology
-                                        providers to enhance our Digital &amp; Smart Factory Solutions. This
-                                        collaboration will accelerate the adoption of AI-driven automation, IoT, and
-                                        predictive analytics across industries.</p>
-                                </div>
-
-                                <a class="news__media" href="#news"
-                                    aria-label="Read BRIDGE expands smart factory solutions article">
-                                    <img src="assets/images/ls01.webp" alt="Abstract dark geometric texture">
-                                </a>
-                            </div>
-                        </article>
-
-                        <article class="news__item" data-news-item>
-                            <div class="news__meta">
-                                <span class="news__tag">Training</span>
-                            </div>
-
-                            <div class="news__grid">
-                                <div class="news__lead">
-                                    <h3 class="news__headline title-animation">12,458+ PROFESSIONALS TRAINED -
-                                        EMPOWERING THE
-                                        WORKFORCE FOR INDUSTRY 4.0</h3>
-                                    <a class="news__readmore btn" href="#news">
-                                        <span>Read More</span>
-                                        <span class="btn__icon" aria-hidden="true">
-                                            <svg class="btn__arrow btn__arrow--a" width="13" height="13"
-                                                viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#FE5620" stroke-width="1.6"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                            <svg class="btn__arrow btn__arrow--b" width="13" height="13"
-                                                viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M2 11L11 2M11 2H5M11 2V8" stroke="white" stroke-width="1.6"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </div>
-
-                                <div class="news__copy title-animation">
-                                    <p>With over 2,356+ training sessions completed, BRIDGE continues to upskill
-                                        professionals across various industries. Our latest programs focus on smart
-                                        manufacturing, digital transformation, and industrial AI, ensuring
-                                        businesses stay ahead of the curve.</p>
-                                </div>
-
-                                <a class="news__media" href="#news" aria-label="Read professionals trained article">
-                                    <img src="assets/images/ls02.webp" alt="Abstract black wave texture">
-                                </a>
-                            </div>
-                        </article>
-
-                        <article class="news__item" data-news-item>
-                            <div class="news__meta">
-                                <span class="news__tag">Ecosystem</span>
-                                <span class="news__tag">Partnerships</span>
-                            </div>
-
-                            <div class="news__grid">
-                                <div class="news__lead">
-                                    <h3 class="news__headline title-animation">STRENGTHENING OUR ECOSYSTEM - NEW
-                                        KNOWLEDGE &amp;
-                                        STRATEGIC PARTNERS JOIN BRIDGE</h3>
-                                    <a class="news__readmore btn" href="#news">
-                                        <span>Read More</span>
-                                        <span class="btn__icon" aria-hidden="true">
-                                            <svg class="btn__arrow btn__arrow--a" width="13" height="13"
-                                                viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#FE5620" stroke-width="1.6"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                            <svg class="btn__arrow btn__arrow--b" width="13" height="13"
-                                                viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M2 11L11 2M11 2H5M11 2V8" stroke="white" stroke-width="1.6"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </div>
-
-                                <div class="news__copy title-animation">
-                                    <p>We are proud to welcome leading universities, research institutions, and
-                                        industry leaders to our growing ecosystem. These partnerships will drive
-                                        innovation, foster cutting-edge research, and support the next generation of
-                                        industry experts.</p>
-                                </div>
-
-                                <a class="news__media" href="#news" aria-label="Read ecosystem partnerships article">
-                                    <img src="assets/images/ls03.webp" alt="Abstract diagonal black stripes">
-                                </a>
-                            </div>
-                        </article>
-
-                        <article class="news__item" data-news-item>
-                            <div class="news__meta">
-                                <span class="news__tag">Joint Ventures</span>
-                                <span class="news__tag">Innovation</span>
-                            </div>
-
-                            <div class="news__grid">
-                                <div class="news__lead">
-                                    <h3 class="news__headline title-animation">JOINT VENTURES - DRIVING DIGITAL
-                                        TRANSFORMATION IN
-                                        MANUFACTURING</h3>
-                                    <a class="news__readmore btn" href="#news">
-                                        <span>Read More</span>
-                                        <span class="btn__icon" aria-hidden="true">
-                                            <svg class="btn__arrow btn__arrow--a" width="13" height="13"
-                                                viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M2 11L11 2M11 2H5M11 2V8" stroke="#FE5620" stroke-width="1.6"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                            <svg class="btn__arrow btn__arrow--b" width="13" height="13"
-                                                viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M2 11L11 2M11 2H5M11 2V8" stroke="white" stroke-width="1.6"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </div>
-
-                                <div class="news__copy title-animation">
-                                    <p>BRIDGE has joined forces with top industrial leaders to launch large-scale
-                                        transformation projects, integrating IoT, AI, and smart automation into
-                                        traditional manufacturing processes. This initiative will boost productivity
-                                        and efficiency while ensuring sustainable growth.</p>
-                                </div>
-
-                                <a class="news__media" href="#news" aria-label="Read joint ventures article">
-                                    <img src="assets/images/ls04.webp" alt="Abstract textured black background">
-                                </a>
-                            </div>
-                        </article>
+                            </article>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>

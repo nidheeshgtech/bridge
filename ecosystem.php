@@ -18,7 +18,7 @@ $activePage = 'ecosystem';
                                                                 <p class="ecosystem-page__subtitle title-animation">
                                                                         Partnerships that power progress
                                                                 </p>
-                                                                <div class="ecosystem-page__copy title-animation">
+                                                                <div class="ecosystem-page__copy title-animation-">
                                                                         <p>Nobody succeeds alone, and no organisation
                                                                                 thrives in isolation. That's why
                                                                                 BRIDGE actively pursues partnerships and
@@ -33,7 +33,7 @@ $activePage = 'ecosystem';
                                                                                 excellence and innovation.</p>
                                                                 </div>
                                                         </div>
-                                                        <p class="ecosystem-page__footnote title-animation">This
+                                                        <p class="ecosystem-page__footnote title-animation--">This
                                                                 ecosystem includes leading UAE
                                                                 government and private sector organisation that bring
                                                                 sector specialisation and
@@ -54,7 +54,7 @@ $activePage = 'ecosystem';
                 </div>
         </section>
 
-        <section class="ecosystem-page__partners">
+        <!-- <section class="ecosystem-page__partners">
                 <div class="container">
                         <div class="row">
                                 <div class="col-12">
@@ -289,6 +289,6 @@ $activePage = 'ecosystem';
                                 </div>
                         </div>
                 </div>
-        </section>
+        </section> -->
 
         <?php include 'inc/footer.php'; ?>

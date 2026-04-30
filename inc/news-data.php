@@ -1,0 +1,43 @@
+<?php
+$news_items = [
+    [
+        'tags'       => ['Defence', 'Manufacturing'],
+        'categories' => 'defence,manufacturing',
+        'headline'   => 'EDGE CHARTS DEFENCE MANUFACTURING PROGRESS AT MAKE IT IN THE EMIRATES 2026',
+        'copy'       => 'EDGE Group will participate as an Enablement Partner at Make It in the Emirates (MIITE) 2026, spotlighting its landmark achievements in supply chain localisation, smart manufacturing, talent development, and technological advancements. The Group\'s participation underscores its pivotal role in advancing the UAE\'s industrial defence sovereignty and its full alignment with Operation 300bn and the MIITE initiative.',
+        'link'       => 'https://edgegroup.ae/news/edge-charts-defence-manufacturing-progress-make-it-emirates-2026',
+        'image'      => 'assets/images/news_01.webp',
+        'image_alt'  => 'EDGE Group at Make It In The Emirates 2026',
+        'aria_label' => 'Read EDGE charts defence manufacturing progress article',
+    ],
+    [
+        'tags'       => ['Defence', 'Made in UAE'],
+        'categories' => 'defence,made-in-uae',
+        'headline'   => 'EDGE CHAMPIONS MADE IN UAE DEFENCE CAPABILITIES AT MIITE 2025',
+        'copy'       => 'As the UAE\'s national champion for advanced technology and defence manufacturing, EDGE Group is using its presence at the Make it in the Emirates Forum 2025 (MIITE 2025) to showcase its central role in accelerating the UAE\'s sovereign defence industry and building a globally competitive industrial ecosystem.',
+        'link'       => 'https://edgegroup.ae/news/edge-champions-made-uae-defence-capabilities-miite-2025',
+        'image'      => 'assets/images/news_02.webp',
+        'image_alt'  => 'EDGE Group at MIITE 2025',
+        'aria_label' => 'Read EDGE champions Made in UAE defence capabilities article',
+    ],
+    [
+        'tags'       => ['Partnerships', 'Innovation'],
+        'categories' => 'partnerships,innovation',
+        'headline'   => 'EDGE LIF ESTABLISHES PARTNERSHIP WITH QUANTASIM TO EMPOWER LOCAL TALENT IN INNOVATIVE ENGINEERING',
+        'copy'       => 'EDGE\'s Learning and Innovation Factory (LIF), a hub that offers advanced upskilling and technology-driven solutions to enhance manufacturing excellence and innovation in the defence and industrial sectors, has announced a collaboration with QuantaSim, a leading consulting and training firm specialising in cutting-edge engineering solutions, for an Engineering Bootcamp Program.',
+        'link'       => 'https://edgegroup.ae/news/edge-lif-establishes-partnership-quantasim-empower-local-talent-innovative-engineering',
+        'image'      => 'assets/images/news_03.webp',
+        'image_alt'  => 'EDGE LIF and Quantasim partnership',
+        'aria_label' => 'Read EDGE LIF establishes partnership with Quantasim article',
+    ],
+    [
+        'tags'       => ['MoU', 'Industry 4.0'],
+        'categories' => 'mou,industry-4-0',
+        'headline'   => 'EDGE AND MINISTRY OF INDUSTRY AND ADVANCED TECHNOLOGY SIGN MOU TO ADVANCE UAE\'S INDUSTRY 4.0',
+        'copy'       => 'Under the National Strategy for Industry and Advanced Technology, Operation 300bn, EDGE Group\'s Learning &amp; Innovation Factory (LIF) and the Ministry of Industry and Advanced Technology (MoIAT) have signed a Memorandum of Understanding (MoU). LIF is a hub that offers advanced upskilling and technology-driven solutions to enhance manufacturing excellence and innovation in the defence and industrial sectors.',
+        'link'       => 'https://edgegroup.ae/news/edge-and-ministry-industry-and-advanced-technology-sign-mou-advance-uaes-industry-40',
+        'image'      => 'assets/images/news_04.webp',
+        'image_alt'  => 'EDGE and MoIAT MoU signing',
+        'aria_label' => 'Read EDGE and Ministry of Industry sign MoU article',
+    ],
+];

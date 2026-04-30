@@ -79,6 +79,13 @@
     color: $color-accent;
 }
 
+.hero__logo {
+    display: block;
+    width: 100%;
+    max-width: fluid(240, 560);
+    height: auto;
+}
+
 // ── Subtitle ───────────────────────────────────────────────
 .hero__sub {
     font-family: $font-book;
