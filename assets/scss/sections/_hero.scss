@@ -17,6 +17,7 @@
     @include fill;
     z-index: 0;
     overflow: hidden;
+    background: url('../images/video_bg.webp') center / cover no-repeat;
 
     iframe {
         position: absolute;
