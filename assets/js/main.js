@@ -484,7 +484,7 @@ if (revealEls.length) {
         const prevButton = page.querySelector('[data-news-prev]');
         const nextButton = page.querySelector('[data-news-next]');
         const pageList = page.querySelector('[data-news-page-list]');
-        const perPage = 3;
+        const perPage = Infinity;
         let activeCategory = 'all';
         let currentPage = 1;
 
@@ -564,21 +564,29 @@ if (revealEls.length) {
 
         const render = animate => {
             const filteredEntries = getFilteredEntries();
-            const totalPages = Math.max(1, Math.ceil(filteredEntries.length / perPage));
+            const visibleEntries = perPage === Infinity
+                ? filteredEntries
+                : filteredEntries.slice((currentPage - 1) * perPage, currentPage * perPage);
+
+            const totalPages = perPage === Infinity ? 1 : Math.max(1, Math.ceil(filteredEntries.length / perPage));
 
             if (currentPage > totalPages) {
                 currentPage = totalPages;
             }
-
-            const start = (currentPage - 1) * perPage;
-            const visibleEntries = filteredEntries.slice(start, start + perPage);
 
             entries.forEach(entry => {
                 entry.hidden = !visibleEntries.includes(entry);
             });
 
             updateFilterControls();
-            buildPagination(totalPages);
+
+            const paginationEl = page.querySelector('[data-news-pagination]');
+            if (perPage === Infinity) {
+                if (paginationEl) paginationEl.style.display = 'none';
+            } else {
+                if (paginationEl) paginationEl.style.display = '';
+                buildPagination(totalPages);
+            }
 
             if (animate) {
                 animateVisibleEntries(visibleEntries);
@@ -639,7 +647,7 @@ if (revealEls.length) {
         const prevButton = page.querySelector('[data-articles-prev]');
         const nextButton = page.querySelector('[data-articles-next]');
         const pageList = page.querySelector('[data-articles-page-list]');
-        const perPage = 4;
+        const perPage = 10;
         let activeCategory = 'all';
         let currentPage = 1;
 
