@@ -63,21 +63,6 @@ include 'inc/news-data.php';
                             <div class="news__grid">
                                 <div class="news__lead">
                                     <h2 class="news__headline title-animation"><?= htmlspecialchars($item['headline']) ?></h2>
-                                    <a class="news__readmore btn" href="<?= htmlspecialchars($item['link']) ?>" target="_blank" rel="noopener noreferrer">
-                                        <span>Read More</span>
-                                        <span class="btn__icon" aria-hidden="true">
-                                            <svg class="btn__arrow btn__arrow--a" width="13" height="13"
-                                                viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M2 11L11 2M11 2H5M11 2V8" stroke="currentColor"
-                                                    stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                            <svg class="btn__arrow btn__arrow--b" width="13" height="13"
-                                                viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M2 11L11 2M11 2H5M11 2V8" stroke="currentColor"
-                                                    stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </span>
-                                    </a>
                                 </div>
 
                                 <div class="news__copy">
@@ -88,6 +73,22 @@ include 'inc/news-data.php';
                                     aria-label="<?= htmlspecialchars($item['aria_label']) ?>" target="_blank" rel="noopener noreferrer">
                                     <img src="<?= htmlspecialchars($item['image']) ?>"
                                         alt="<?= htmlspecialchars($item['image_alt']) ?>">
+                                </a>
+
+                                <a class="news__readmore btn" href="<?= htmlspecialchars($item['link']) ?>" target="_blank" rel="noopener noreferrer">
+                                    <span>Read More</span>
+                                    <span class="btn__icon" aria-hidden="true">
+                                        <svg class="btn__arrow btn__arrow--a" width="13" height="13"
+                                            viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2 11L11 2M11 2H5M11 2V8" stroke="currentColor"
+                                                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <svg class="btn__arrow btn__arrow--b" width="13" height="13"
+                                            viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2 11L11 2M11 2H5M11 2V8" stroke="currentColor"
+                                                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
                                 </a>
                             </div>
                         </article>

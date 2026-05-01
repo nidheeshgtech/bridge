@@ -140,16 +140,13 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 40px;
 
     @media (max-width: 1199px) {
         grid-column: 1;
         grid-row: 1;
-        gap: 28px;
     }
 
     @media (max-width: 767px) {
-        gap: 24px;
         grid-column: unset;
         grid-row: unset;
     }
@@ -211,6 +208,22 @@
         p {
             font-size: 16px;
         }
+    }
+}
+
+.news__readmore {
+    align-self: flex-start;
+    justify-self: start;
+    width: auto;
+
+    @media (max-width: 1199px) {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    @media (max-width: 767px) {
+        grid-column: unset;
+        grid-row: unset;
     }
 }
 
