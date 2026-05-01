@@ -56,7 +56,7 @@ include 'inc/news-data.php';
                     <div class="banner__card">
                         <div class="banner__content">
                             <div class="banner__text">
-                                <span class="banner__num revealmetop">01</span>
+                                <!-- <span class="banner__num revealmetop">01</span> -->
                                 <h2 class="banner__heading title-animation">A world-class business
                                     transformation Centre of Excellence in the Middle East</h2>
                             </div>
