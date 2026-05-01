@@ -19,7 +19,7 @@
     <div class="footer__legal">
         <span>Copyright &copy; 2026 EDGE Group PJSC</span>
         <span class="footer__dot"></span>
-        <a href="contact-us.php">Privacy Policy</a>
+        <a href="#">Privacy Policy</a>
     </div>
 </footer>
 
