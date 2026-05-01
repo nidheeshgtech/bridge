@@ -12,7 +12,7 @@
         <a href="our-services.php">Our Services</a>
         <a href="ecosystem.php">Our Ecosystem</a>
         <a href="news.php">News</a>
-        <a href="articles.php">Articles</a>
+        <!-- <a href="articles.php">Articles</a> -->
         <a href="contact-us.php">Contact Us</a>
     </nav>
 
