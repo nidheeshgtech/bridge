@@ -631,7 +631,7 @@ include 'inc/news-data.php';
                                         <h3 class="contact__detail-title">Phone Number</h3>
                                         <p class="contact__detail-copy">+97122056500</p>
                                         <a class="contact__detail-link" href="tel:+97122056500">
-                                            <span>Make A Call</span>
+                                            <span>Make a Call</span>
                                             <span class="btn__icon" aria-hidden="true">
                                                 <svg class="btn__arrow btn__arrow--a" width="13" height="13"
                                                     viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
