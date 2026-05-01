@@ -75,7 +75,7 @@ $activePage = 'services';
                                     <h3 class="services-page__content-title title-animation">Strategic Consulting</h3>
                                 </div>
 
-                                <div class="services-page__copy title-animation">
+                                <div class="services-page__copy ">
                                     <p>BRIDGE collaborates with organisations to turn strategy into action and
                                         challenges into opportunities for growth. Our consultancy services are grounded
                                         in extensive expertise in Lean management, quality management, Six Sigma, agile
@@ -132,7 +132,7 @@ $activePage = 'services';
                                     <h3 class="services-page__content-title title-animation">Business Transformation and
                                         Advanced Solutions</h3>
                                 </div>
-                                <div class="services-page__copy title-animation">
+                                <div class="services-page__copy ">
                                     <p>Organisational success involves elevating operations to the next level. With
                                         expertise across a range of business transformation capabilities, BRIDGE assists
                                         companies in achieving key objectives such as increased productivity, greater
@@ -199,7 +199,7 @@ $activePage = 'services';
                                     <h3 class="services-page__content-title title-animation">Hackathons, Makeathons,
                                         Innovation Challenges</h3>
                                 </div>
-                                <div class="services-page__copy title-animation">
+                                <div class="services-page__copy ">
                                     <p>Many organisations struggle to turn ideas into execution. Innovation is often
                                         slowed by siloed teams, rigid processes, and a lack of clear pathways from
                                         concept to deployment. As a result, most ideas never get the oxygen or space
