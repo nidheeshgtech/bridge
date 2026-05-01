@@ -25,7 +25,7 @@ include 'inc/news-data.php';
                 <span data-hero-span>TRANSFORM<span class="hero__dot">.</span></span>
                 <span data-hero-span>ELEVATE<span class="hero__dot">.</span></span>
             </h1> -->
-            <img src="assets/images/banner-bridge.svg" alt="Bridge" class="hero__logo" data-hero-span>
+            <img src="assets/images/banner-bridge_.svg" alt="Bridge" class="hero__logo" data-hero-span>
             <p class="hero__sub" data-hero-sub>Empowering people, unleashing possibility
             </p>
             <a href="#about" class="btn btn--hero" data-hero-btn>
