@@ -138,11 +138,11 @@ if (hamburger) {
 
         if (navbarRight) {
             tl.to(navbarRight, {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.46,
-            ease: 'power2.out'
-        }, 1.16);
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.46,
+                ease: 'power2.out'
+            }, 1.16);
         }
 
         if (pageMain) {
