@@ -1,6 +1,33 @@
 @use '../abstracts' as *;
 @use 'sass:color';
 
+.page-intro {
+    position: fixed;
+    inset: 0;
+    z-index: calc(#{$z-nav} + 20);
+    display: grid;
+    place-items: center;
+    background: #141414;
+    pointer-events: none;
+}
+
+.page-intro__logo-wrap {
+    position: relative;
+    width: min(68vw, 540px);
+
+    @include respond-to(sm) {
+        width: min(78vw, 320px);
+    }
+}
+
+.page-intro__logo {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform-origin: top left;
+    will-change: transform, opacity, filter;
+}
+
 // ── Container ──────────────────────────────────────────────
 .site-header {
     position: fixed;
@@ -208,6 +235,10 @@
     color: $color-accent;
 }
 
+.navbar__link--active {
+    color: $color-accent;
+}
+
 // Desktop: orange tick at the bottom edge of the nav bar (Figma design)
 .navbar__item--active::after {
     content: '';
@@ -226,6 +257,11 @@
 // Mobile: orange tint on active link
 @include respond-to(sm) {
     .navbar__item--active .navbar__link {
+        color: $color-accent;
+        background: rgba(254, 86, 32, 0.08);
+    }
+
+    .navbar__link--active {
         color: $color-accent;
         background: rgba(254, 86, 32, 0.08);
     }

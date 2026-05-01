@@ -2,7 +2,9 @@
 const hamburger = document.querySelector('.navbar__hamburger');
 const navbar = document.querySelector('.navbar');
 const siteHeader = document.querySelector('.site-header');
+const introOverlay = document.querySelector('[data-page-intro]');
 let lenisInstance = null;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (hamburger) {
     hamburger.addEventListener('click', () => {
@@ -18,6 +20,185 @@ if (hamburger) {
         });
     });
 }
+
+// ── Page intro animation ───────────────────────────────────
+(function () {
+    if (!introOverlay) return;
+
+    const introLogo = introOverlay.querySelector('.page-intro__logo');
+    const targetLogo = document.querySelector('.navbar__logo');
+    const navbarMenu = document.querySelector('.navbar__menu');
+    const navbarItems = Array.from(document.querySelectorAll('.navbar__menu .navbar__item'));
+    const navbarRight = document.querySelector('.navbar__right');
+    const pageMain = document.querySelector('main');
+    const heroTitle = document.querySelector('.hero__title');
+    const heroTitleSpans = heroTitle ? Array.from(heroTitle.querySelectorAll('[data-hero-title-span], [data-hero-span]')) : [];
+    const heroLogo = document.querySelector('.hero__logo');
+    const heroSub = document.querySelector('.hero__sub');
+    const heroBtn = document.querySelector('.btn--hero');
+
+    if (!introLogo || !targetLogo) return;
+
+    const revealImmediately = () => {
+        document.body.classList.remove('page-intro-active');
+        if (siteHeader) gsap.set(siteHeader, { clearProps: 'all', autoAlpha: 1, y: 0 });
+        if (targetLogo) gsap.set(targetLogo, { clearProps: 'all', autoAlpha: 1 });
+        if (navbarMenu) gsap.set(navbarMenu, { clearProps: 'all' });
+        if (navbarItems.length) gsap.set(navbarItems, { clearProps: 'all' });
+        if (navbarRight) gsap.set(navbarRight, { clearProps: 'all', autoAlpha: 1, y: 0 });
+        if (pageMain) gsap.set(pageMain, { clearProps: 'all', autoAlpha: 1 });
+        if (heroTitleSpans.length) gsap.set(heroTitleSpans, { clearProps: 'all', autoAlpha: 1, y: 0 });
+        if (heroLogo) gsap.set(heroLogo, { clearProps: 'all', autoAlpha: 1, y: 0, scale: 1 });
+        if (heroSub) gsap.set(heroSub, { clearProps: 'all', autoAlpha: 1, y: 0 });
+        if (heroBtn) gsap.set(heroBtn, { clearProps: 'all', autoAlpha: 1, y: 0 });
+        gsap.set(introOverlay, { display: 'none' });
+    };
+
+    if (!window.gsap || prefersReducedMotion) {
+        revealImmediately();
+        return;
+    }
+
+    const runIntro = () => {
+        const introRect = introLogo.getBoundingClientRect();
+        const targetRect = targetLogo.getBoundingClientRect();
+
+        if (!introRect.width || !targetRect.width) {
+            revealImmediately();
+            return;
+        }
+
+        const deltaX = targetRect.left - introRect.left;
+        const deltaY = targetRect.top - introRect.top;
+        const scale = targetRect.width / introRect.width;
+
+        gsap.set(siteHeader, { autoAlpha: 0, y: -16 });
+        gsap.set(targetLogo, { autoAlpha: 0 });
+        if (navbarItems.length) gsap.set(navbarItems, { autoAlpha: 0, y: 12 });
+        if (navbarRight) gsap.set(navbarRight, { autoAlpha: 0, y: 12 });
+        if (pageMain) gsap.set(pageMain, { autoAlpha: 0 });
+        if (heroTitleSpans.length) gsap.set(heroTitleSpans, { autoAlpha: 0, y: 42 });
+        if (heroLogo) gsap.set(heroLogo, { autoAlpha: 0, y: 18, scale: 0.96, filter: 'blur(4px)' });
+        if (heroSub) gsap.set(heroSub, { autoAlpha: 0, y: 18 });
+        if (heroBtn) gsap.set(heroBtn, { autoAlpha: 0, y: 18 });
+
+        const tl = gsap.timeline({
+            defaults: {
+                ease: 'power3.inOut'
+            },
+            onComplete: () => {
+                document.body.classList.remove('page-intro-active');
+                gsap.set(targetLogo, { clearProps: 'opacity' });
+                gsap.set(introOverlay, { display: 'none' });
+            }
+        });
+
+        tl.to({}, { duration: 0.18 });
+
+        tl.to(introLogo, {
+            x: deltaX,
+            y: deltaY,
+            scale,
+            filter: 'blur(1.5px)',
+            duration: 1.15
+        }, 0.18);
+
+        tl.to(introOverlay, {
+            backgroundColor: 'rgba(20,20,20,0)',
+            duration: 0.9,
+            ease: 'power2.out'
+        }, 0.34);
+
+        tl.to(targetLogo, {
+            autoAlpha: 1,
+            duration: 0.18,
+            ease: 'power2.out'
+        }, 1.02);
+
+        tl.to(introLogo, {
+            autoAlpha: 0,
+            filter: 'blur(4px)',
+            duration: 0.22,
+            ease: 'power2.out'
+        }, 1.02);
+
+        tl.to(siteHeader, {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.42
+        }, 1.08);
+
+        tl.to(navbarItems, {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.46,
+            stagger: 0.05,
+            ease: 'power2.out'
+        }, 1.16);
+
+        if (navbarRight) {
+            tl.to(navbarRight, {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.46,
+            ease: 'power2.out'
+        }, 1.16);
+        }
+
+        if (pageMain) {
+            tl.to(pageMain, {
+                autoAlpha: 1,
+                duration: 0.48,
+                ease: 'power2.out'
+            }, 1.18);
+        }
+
+        if (heroLogo) {
+            tl.to(heroLogo, {
+                autoAlpha: 1,
+                y: 0,
+                scale: 1,
+                filter: 'blur(0px)',
+                duration: 0.72,
+                ease: 'power3.out'
+            }, 1.32);
+        }
+
+        if (heroTitleSpans.length) {
+            tl.to(heroTitleSpans, {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.82,
+                stagger: 0.1,
+                ease: 'power3.out'
+            }, heroLogo ? 1.4 : 1.28);
+        }
+
+        if (heroSub) {
+            tl.to(heroSub, {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.58,
+                ease: 'power3.out'
+            }, heroTitleSpans.length ? '>-0.02' : (heroLogo ? 1.56 : 1.34));
+        }
+
+        if (heroBtn) {
+            tl.to(heroBtn, {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.56,
+                ease: 'power3.out'
+            }, '>-0.18');
+        }
+    };
+
+    if (document.readyState === 'complete') {
+        runIntro();
+    } else {
+        window.addEventListener('load', runIntro, { once: true });
+    }
+})();
 
 // ── Search overlay ───────────────────────────────────────────
 (function () {
@@ -104,8 +285,6 @@ window.odometerOptions = {
     auto: false,
     duration: 1800
 };
-
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // ── Lenis smooth scroll ────────────────────────────────────
 if (window.Lenis && !prefersReducedMotion) {
@@ -236,41 +415,6 @@ if (revealEls.length) {
         });
     }
 }
-
-// ── Hero entrance animation ──────────────────────────────────
-(function () {
-    if (!window.gsap || prefersReducedMotion) return;
-
-    const titleSpans = document.querySelectorAll('[data-hero-span]');
-    const sub = document.querySelector('[data-hero-sub]');
-    const btn = document.querySelector('[data-hero-btn]');
-
-    if (!titleSpans.length) return;
-
-    gsap.set(titleSpans, { autoAlpha: 0, y: 60, force3D: true });
-    gsap.set([sub, btn].filter(Boolean), { autoAlpha: 0, y: 24, force3D: true });
-
-    const tl = gsap.timeline({ delay: 0.25 });
-
-    tl.to(titleSpans, {
-        autoAlpha: 1, y: 0,
-        duration: 1.1, stagger: 0.18, ease: 'power4.out', force3D: true
-    });
-
-    if (sub) {
-        tl.to(sub, {
-            autoAlpha: 1, y: 0,
-            duration: 1.0, ease: 'power3.out', force3D: true
-        }, '-=0.55');
-    }
-
-    if (btn) {
-        tl.to(btn, {
-            autoAlpha: 1, y: 0,
-            duration: 0.9, ease: 'power3.out', force3D: true
-        }, '-=0.65');
-    }
-})();
 
 // ── Title animation (.title-animation) ─────────────────────
 (function () {

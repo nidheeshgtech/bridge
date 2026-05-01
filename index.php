@@ -20,12 +20,12 @@ include 'inc/news-data.php';
         </div>
         <div class="hero__overlay" aria-hidden="true"></div>
         <div class="hero__content">
-            <!-- <h1 class="hero__title">
+            <h1 class="hero__title">
                 <span data-hero-span>INNOVATE<span class="hero__dot">.</span></span>
                 <span data-hero-span>TRANSFORM<span class="hero__dot">.</span></span>
                 <span data-hero-span>ELEVATE<span class="hero__dot">.</span></span>
-            </h1> -->
-            <img src="assets/images/banner-bridge_.svg" alt="Bridge" class="hero__logo" data-hero-span>
+            </h1>
+            <!-- <img src="assets/images/banner-bridge_.svg" alt="Bridge" class="hero__logo" data-hero-span> -->
             <p class="hero__sub" data-hero-sub>Empowering people, unleashing possibility
             </p>
             <a href="#about" class="btn btn--hero" data-hero-btn>

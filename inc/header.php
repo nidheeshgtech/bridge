@@ -13,28 +13,33 @@
         rel="stylesheet">
     <link rel="stylesheet" href="assets/css/fonts.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        body.page-intro-active .hero__title>span,
+        body.page-intro-active .hero__sub,
+        body.page-intro-active .btn--hero,
+        body.page-intro-active .hero__logo {
+            opacity: 0;
+            visibility: hidden;
+        }
+    </style>
     <?= $extraHead ?? '' ?>
 
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-WGF5V2HR');</script>
-    <!-- End Google Tag Manager -->
+
 
 
 </head>
 
-<body>
+<body class="<?= ($activePage ?? '') === 'home' ? 'page-intro-active' : '' ?>">
 
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WGF5V2HR" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+
+
+    <?php if (($activePage ?? '') === 'home'): ?>
+        <div class="page-intro" data-page-intro aria-hidden="true">
+            <div class="page-intro__logo-wrap">
+                <img class="page-intro__logo" src="assets/images/banner-bridge__loader.svg" alt="BRIDGE">
+            </div>
+        </div>
+    <?php endif; ?>
 
     <!-- ============================================================
          NAVBAR
@@ -47,25 +52,37 @@
                 </a>
                 <ul class="navbar__menu">
                     <li class="navbar__item <?= ($activePage ?? '') === 'home' ? 'navbar__item--active' : '' ?>">
-                        <a href="index.php" class="navbar__link">Home</a>
+                        <a href="index.php"
+                            class="navbar__link <?= ($activePage ?? '') === 'home' ? 'navbar__link--active' : '' ?>"
+                            <?= ($activePage ?? '') === 'home' ? 'aria-current="page"' : '' ?>>Home</a>
                     </li>
                     <li class="navbar__item <?= ($activePage ?? '') === 'about' ? 'navbar__item--active' : '' ?>">
-                        <a href="about-us.php" class="navbar__link">About Us</a>
+                        <a href="about-us.php"
+                            class="navbar__link <?= ($activePage ?? '') === 'about' ? 'navbar__link--active' : '' ?>"
+                            <?= ($activePage ?? '') === 'about' ? 'aria-current="page"' : '' ?>>About Us</a>
                     </li>
                     <li class="navbar__item <?= ($activePage ?? '') === 'services' ? 'navbar__item--active' : '' ?>">
-                        <a href="our-services.php" class="navbar__link">Our Services</a>
+                        <a href="our-services.php"
+                            class="navbar__link <?= ($activePage ?? '') === 'services' ? 'navbar__link--active' : '' ?>"
+                            <?= ($activePage ?? '') === 'services' ? 'aria-current="page"' : '' ?>>Our Services</a>
                     </li>
                     <li class="navbar__item <?= ($activePage ?? '') === 'ecosystem' ? 'navbar__item--active' : '' ?>">
-                        <a href="ecosystem.php" class="navbar__link">Our Ecosystem</a>
+                        <a href="ecosystem.php"
+                            class="navbar__link <?= ($activePage ?? '') === 'ecosystem' ? 'navbar__link--active' : '' ?>"
+                            <?= ($activePage ?? '') === 'ecosystem' ? 'aria-current="page"' : '' ?>>Our Ecosystem</a>
                     </li>
                     <li class="navbar__item <?= ($activePage ?? '') === 'news' ? 'navbar__item--active' : '' ?>">
-                        <a href="news.php" class="navbar__link">News</a>
+                        <a href="news.php"
+                            class="navbar__link <?= ($activePage ?? '') === 'news' ? 'navbar__link--active' : '' ?>"
+                            <?= ($activePage ?? '') === 'news' ? 'aria-current="page"' : '' ?>>News</a>
                     </li>
                     <!-- <li class="navbar__item <?= ($activePage ?? '') === 'articles' ? 'navbar__item--active' : '' ?>">
                         <a href="articles.php" class="navbar__link">Articles</a>
                     </li> -->
                     <li class="navbar__item <?= ($activePage ?? '') === 'contact' ? 'navbar__item--active' : '' ?>">
-                        <a href="contact-us.php" class="navbar__link">Contact Us</a>
+                        <a href="contact-us.php"
+                            class="navbar__link <?= ($activePage ?? '') === 'contact' ? 'navbar__link--active' : '' ?>"
+                            <?= ($activePage ?? '') === 'contact' ? 'aria-current="page"' : '' ?>>Contact Us</a>
                     </li>
                 </ul>
                 <div class="navbar__right">

@@ -100,3 +100,11 @@
 .hero__content .btn {
     margin-top: 8px;
 }
+
+body.page-intro-active .hero__title > span,
+body.page-intro-active .hero__sub,
+body.page-intro-active .btn--hero,
+body.page-intro-active .hero__logo {
+    opacity: 0;
+    visibility: hidden;
+}
